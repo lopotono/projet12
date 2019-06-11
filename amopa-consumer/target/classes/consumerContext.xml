@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSourceAmopa" />
+	</bean>
+
+	<bean id="vNamedParameterJdbcTemplate"
+		class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg ref="dataSourceAmopa"></constructor-arg>
+	</bean>
+
+	<bean id="abstractDaoImpl" abstract="true">
+		<property name="dataSource" ref="dataSourceAmopa" />
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+
+	<bean id="userDao"
+		class="org.projet.amopa.consumer.impl.UserDAOImpl"
+		parent="abstractDaoImpl" />
+
+	<bean id="daoFactory"
+		class="org.projet.amopa.consumer.impl.DaoFactoryImpl">
+		<property name="userDao" ref="userDao" />
+	</bean>
+</beans>
