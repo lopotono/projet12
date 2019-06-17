@@ -10,22 +10,21 @@
 		<property name="dataSource" ref="dataSourceAmopa" />
 	</bean>
 
-	<bean id="vNamedParameterJdbcTemplate"
-		class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
-		<constructor-arg ref="dataSourceAmopa"></constructor-arg>
-	</bean>
-
 	<bean id="abstractDaoImpl" abstract="true">
 		<property name="dataSource" ref="dataSourceAmopa" />
-		<property name="jdbcTemplate" ref="jdbcTemplate" />
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
 	</bean>
 
 	<bean id="userDao"
 		class="org.projet.amopa.consumer.impl.UserDAOImpl"
 		parent="abstractDaoImpl" />
+	<bean id="activityDao"
+		class="org.projet.amopa.consumer.impl.ActivityDAOImpl"
+		parent="abstractDaoImpl" />
 
 	<bean id="daoFactory"
 		class="org.projet.amopa.consumer.impl.DaoFactoryImpl">
 		<property name="userDao" ref="userDao" />
+		<property name="activityDao" ref="activityDao" />
 	</bean>
 </beans>
