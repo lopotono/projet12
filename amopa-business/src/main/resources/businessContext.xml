@@ -5,23 +5,21 @@
             http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="txManagerSite"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSourceAmopa"></property>
-	</bean>
-
 	<bean id="abstractManager" abstract="true">
 		<property name="daoFactory" ref="daoFactory" />
-		<property name="platformTransactionManager"
-			ref="txManagerSite" />
 	</bean>
 
 	<bean id="userManager"
 		class="org.projet.amopa.business.impl.UserManagerImpl"
 		parent="abstractManager" />
 
+	<bean id="activityManager"
+		class="org.projet.amopa.business.impl.ActivityManagerImpl"
+		parent="abstractManager" />
+
 	<bean id="managerFactory"
 		class="org.projet.amopa.business.impl.ManagerFactoryImpl">
 		<property name="userManager" ref="userManager" />
+		<property name="activityManger" ref="activityManger" />
 	</bean>
 </beans>
