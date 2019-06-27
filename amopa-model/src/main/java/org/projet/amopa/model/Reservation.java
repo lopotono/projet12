@@ -11,6 +11,8 @@ public class Reservation {
 	private Calendar dateresasms;
 	private Calendar dateconfsms;
 	private Calendar daterappelsms;
+	private int id_user;
+	private int id_activity;
 	
 	public int getId() {
 		return id;
@@ -59,5 +61,19 @@ public class Reservation {
 	}
 	public void setDaterappelsms(Calendar daterappelsms) {
 		this.daterappelsms = daterappelsms;
+	}
+	
+	public int getId_user() {
+		return id_user;
+	}
+	public void setId_user(int id_user) {
+		this.id_user = id_user;
+	}
+	
+	public int getId_activity() {
+		return id_activity;
+	}
+	public void setId_activity(int id_activity) {
+		this.id_activity = id_activity;
 	}
 }
