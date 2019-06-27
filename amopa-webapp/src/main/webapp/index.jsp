@@ -30,7 +30,7 @@
 		</header>
 
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<p class="brand">AMOPA 75 XIXème-XXème</p>
+			<p class="brand">AMOPA PARIS XIXème-XXème</p>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -45,18 +45,25 @@
 							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
 							role="button" aria-haspopup="true" aria-expanded="false">ACTIVITES</a>
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="#">Conférences</a> <a
-									class="dropdown-item" href="#">Visite de musée</a> <a
-									class="dropdown-item" href="#">Voyage 1 jour</a> <a
+								<a class="dropdown-item" href="#">Conférences</a>
+								<s:a action="listActivityExpo" class="dropdown-item">Expositions</s:a>
+								<a class="dropdown-item" href="#">Voyage 1 jour</a> <a
 									class="dropdown-item" href="#">Voyage plusieurs jours</a> <a
-									class="dropdown-item" href="#">AG</a> <a class="dropdown-item"
-									href="#">Concert/Théatre</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Description activité</a>
+									class="dropdown-item" href="#">AG</a>
+								<s:a action="listActivityConcert" class="dropdown-item">
+									Concert/Théatre</s:a>
+								<s:if test="#session.user.surname=='RESTOIN'">
+									<div class="dropdown-divider"></div>
+									<s:a action="formulaireActivity" class="dropdown-item">Description activité</s:a>
+								</s:if>
+								<s:if test="#session.user.surname=='TERRAGE'">
+									<div class="dropdown-divider"></div>
+									<s:a action="suivi" class="dropdown-item">Suivi des Réservations</s:a>
+								</s:if>
 							</div></li>
 						<li class="nav-item"><a class="nav-link" href="#">INFORMATIONS
 								AUTRES SECTIONS</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">CONTACT</a>
+						<li class="nav-item"><s:a action="contact" class="nav-link">CONTACT</s:a>
 						</li>
 						<li class="nav-item"><s:a action="logout" class="nav-link">
 								<span class="glyphicon glyphicon-log-out"></span>
@@ -65,14 +72,34 @@
 				</s:if>
 			</div>
 		</nav>
-	
 		<s:else>
 			<div class="alert alert-danger" role="alert">
 				Vous devez vous connecter pour accéder aux différentes rubriques
-				<s:a action="login" class="btn btn-info btn-lg" role="button">Se connecter</s:a>
-			</div>
+				<s:a action="login" class="btn btn-info btn-lg" role="button"
+					data-toggle="modal" data-target="#exampleModalCenter">Se connecter</s:a>
+			</div>			
 		</s:else>
-		
+
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModalCenter" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalCenterTitle"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						Vous êtes connecté sous le nom de
+						<s:property value="#session.user.surname" />
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<br>
 		<div class="row">
 			<div class="col-lg-4">
@@ -88,7 +115,7 @@
 					alt="blason20paris" width="150">
 			</div>
 		</div>
-		
+
 		<br>
 		<blockquote class="blockquote text-justify">
 			<p>
@@ -102,12 +129,12 @@
 				et partager nos propositions en vous y inscrivant.
 			</p>
 		</blockquote>
+	</div>
+
+	<footer>
+		<div class="footer-copyright text-center py-3">
+			© 2019 Copyright: <a href="http://www.amopa.asso.fr/">Amopa</a>
 		</div>
-		
-		<footer>
-			<div class="footer-copyright text-center py-3">
-				© 2019 Copyright: <a href="http://www.amopa.asso.fr/">Amopa</a>
-			</div>
-		</footer>
+	</footer>
 </body>
 </html>
