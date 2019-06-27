@@ -5,10 +5,14 @@
             http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<bean id="dataSourceAmopa"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/DB_AMOPA" />
+	</bean>
+
 	<bean id="abstractAction"
 		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-		<property name="targetClass"
-			value="org.projet.amopa.webapp.action.AbstractAction" />
+		<property name="targetClass" value="org.projet.amopa.webapp.action.AbstractAction" />
 		<property name="targetMethod" value="setManagerFactory" />
 		<property name="arguments" ref="managerFactory" />
 	</bean>
