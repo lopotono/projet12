@@ -9,5 +9,80 @@
 			<result>index.jsp</result>
 		</action>
 
+		<!-- Action login/logout -->
+		<action name="login"
+			class="org.projet.amopa.webapp.action.LoginAction" method="login">
+			<result name="input">login/login.jsp</result>
+			<result name="success" type="redirectAction">index</result>
+		</action>
+		<action name="logout"
+			class="org.projet.amopa.webapp.action.LoginAction" method="logout">
+			<result type="redirectAction">index</result>
+		</action>
+
+		<!-- Action ajouter une activité -->
+		<action name="addActivity"
+			class="org.projet.amopa.webapp.action.AddActivityAction"
+			method="execute">
+			<result name="success">secretaire/description.jsp</result>
+		</action>
+
+		<!-- Action afficher formulaire activité -->
+		<action name="formulaireActivity">
+			<result>secretaire/description.jsp</result>
+		</action>
+
+		<!-- Action afficher la liste des expositions -->
+		<action name="listActivityExpo"
+			class="org.projet.amopa.webapp.action.ListActivityExpoAction"
+			method="execute">
+			<result name="success">activities/listeexpo.jsp</result>
+		</action>
+
+		<!-- Action afficher la liste des concerts -->
+		<action name="listActivityConcert"
+			class="org.projet.amopa.webapp.action.ListActivityConcertAction"
+			method="execute">
+			<result name="success">activities/listeconcert.jsp</result>
+		</action>
+
+		<!-- Action afficher détails des activités -->
+		<action name="detailsActivity"
+			class="org.projet.amopa.webapp.action.DetailsActivityAction"
+			method="execute">
+			<result name="success">activities/details.jsp</result>
+		</action>
+
+		<!-- Action afficher contact -->
+		<action name="contact">
+			<result>contact/contact.jsp</result>
+		</action>
+
+		<!-- Action afficher l'historique des activités par utilisateur -->
+		<action name="historique"
+			class="org.projet.amopa.webapp.action.ListActivityByUserAction"
+			method="execute">
+			<result>activities/historique.jsp</result>
+		</action>
+
+		<!-- Action réserver une activité -->
+		<action name="reserver"
+			class="org.projet.amopa.webapp.action.ReserverAction"
+			method="execute">
+			<result name="success" type="redirectAction">reservations/confirmation.jsp</result>
+		</action>
+
+		<!-- Action suivi des réservations -->
+		<action name="suivi">
+			<result>reservations/suivi.jsp</result>
+		</action>
+
+		<!-- Action actualiser les réservations -->
+		<action name="actualiser"
+			class="org.projet.amopa.webapp.action.ActualiserAction"
+			method="execute">
+			<result name="success">reservations/suivi.jsp</result>
+		</action>
+
 	</package>
 </struts>
