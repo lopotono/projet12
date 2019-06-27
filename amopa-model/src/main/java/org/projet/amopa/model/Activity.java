@@ -2,23 +2,36 @@ package org.projet.amopa.model;
 
 public class Activity {
 	
-	private int id;
+	private int idactivity;
+	private Byte image;
 	private String title;
 	private String description;
 	private String place;
 	private String station;
-	private int lignemetro;
-	private int lignetram;
-	private int lignebus;
 	private String genre;
 	private int placesdisponibles;
+	private String date;
+	private String hour;
+	private String lieu;
+	private int price;
+	private int pricesesame;
+	private String conferenciere;
+	private String lienweb;
 
-	public int getId() {
-		return id;
+	public Byte getImage() {
+		return image;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setImage(Byte image) {
+		this.image = image;
+	}
+
+	public int getIdactivity() {
+		return idactivity;
+	}
+
+	public void setIdactivity(int idactivity) {
+		this.idactivity = idactivity;
 	}
 
 	public String getTitle() {
@@ -53,30 +66,6 @@ public class Activity {
 		this.station = station;
 	}
 
-	public int getLignemetro() {
-		return lignemetro;
-	}
-
-	public void setLignemetro(int lignemetro) {
-		this.lignemetro = lignemetro;
-	}
-
-	public int getLignetram() {
-		return lignetram;
-	}
-
-	public void setLignetram(int lignetram) {
-		this.lignetram = lignetram;
-	}
-
-	public int getLignebus() {
-		return lignebus;
-	}
-
-	public void setLignebus(int lignebus) {
-		this.lignebus = lignebus;
-	}
-
 	public String getGenre() {
 		return genre;
 	}
@@ -91,5 +80,61 @@ public class Activity {
 
 	public void setPlacesdisponibles(int placesdisponibles) {
 		this.placesdisponibles = placesdisponibles;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public String getHour() {
+		return hour;
+	}
+
+	public void setHour(String hour) {
+		this.hour = hour;
+	}
+
+	public String getLieu() {
+		return lieu;
+	}
+
+	public void setLieu(String lieu) {
+		this.lieu = lieu;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getPricesesame() {
+		return pricesesame;
+	}
+
+	public void setPricesesame(int pricesesame) {
+		this.pricesesame = pricesesame;
+	}
+
+	public String getConferenciere() {
+		return conferenciere;
+	}
+
+	public void setConferenciere(String conferenciere) {
+		this.conferenciere = conferenciere;
+	}
+
+	public String getLienweb() {
+		return lienweb;
+	}
+
+	public void setLienweb(String lienweb) {
+		this.lienweb = lienweb;
 	}
 }
