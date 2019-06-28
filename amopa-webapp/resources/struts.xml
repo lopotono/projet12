@@ -46,6 +46,34 @@
 			<result name="success">activities/listeconcert.jsp</result>
 		</action>
 
+		<!-- Action afficher la liste des conférences -->
+		<action name="listActivityConf"
+			class="org.projet.amopa.webapp.action.ListActivityConfAction"
+			method="execute">
+			<result name="success">activities/listeconf.jsp</result>
+		</action>
+
+		<!-- Action afficher la liste des voyages 1 jour -->
+		<action name="listActivityVoyage"
+			class="org.projet.amopa.webapp.action.ListActivityVoyageAction"
+			method="execute">
+			<result name="success">activities/listevoyage.jsp</result>
+		</action>
+
+		<!-- Action afficher la liste des voyages plusieurs jours -->
+		<action name="listActivityVoyagePlus"
+			class="org.projet.amopa.webapp.action.ListActivityVoyagePlusAction"
+			method="execute">
+			<result name="success">activities/listevoyageplus.jsp</result>
+		</action>
+
+		<!-- Action afficher la liste des AG -->
+		<action name="listAG"
+			class="org.projet.amopa.webapp.action.ListActivityAGAction"
+			method="execute">
+			<result name="success">activities/listeag.jsp</result>
+		</action>
+
 		<!-- Action afficher détails des activités -->
 		<action name="detailsActivity"
 			class="org.projet.amopa.webapp.action.DetailsActivityAction"
