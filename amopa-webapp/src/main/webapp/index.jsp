@@ -45,11 +45,11 @@
 							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
 							role="button" aria-haspopup="true" aria-expanded="false">ACTIVITES</a>
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="#">Conférences</a>
+								<s:a action="listActivityConf" class="dropdown-item">Conférences</s:a>
 								<s:a action="listActivityExpo" class="dropdown-item">Expositions</s:a>
-								<a class="dropdown-item" href="#">Voyage 1 jour</a> <a
-									class="dropdown-item" href="#">Voyage plusieurs jours</a> <a
-									class="dropdown-item" href="#">AG</a>
+								<s:a action="listActivityVoyage" class="dropdown-item">Voyage 1 jour</s:a>
+								<s:a action="listActivityVoyagePlus" class="dropdown-item">Voyage plusieurs jours</s:a>
+								<s:a action="listAG" class="dropdown-item">AG</s:a>
 								<s:a action="listActivityConcert" class="dropdown-item">
 									Concert/Théatre</s:a>
 								<s:if test="#session.user.surname=='RESTOIN'">
@@ -77,7 +77,7 @@
 				Vous devez vous connecter pour accéder aux différentes rubriques
 				<s:a action="login" class="btn btn-info btn-lg" role="button"
 					data-toggle="modal" data-target="#exampleModalCenter">Se connecter</s:a>
-			</div>			
+			</div>
 		</s:else>
 
 		<!-- Modal -->
