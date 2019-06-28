@@ -15,4 +15,12 @@ public interface ActivityDAO {
 	int getActivityByPlacesId(int idactivity);
 	
 	List<Activity> getListActivityByConcert(String genre);
+	
+	List<Activity> getListActivityByConf(String genre);
+	
+	List<Activity> getListActivityByVoyage(String genre);
+	
+	List<Activity> getListActivityByVoyageplus(String genre);
+	
+	List<Activity> getListActivityByAG(String genre);
 }
