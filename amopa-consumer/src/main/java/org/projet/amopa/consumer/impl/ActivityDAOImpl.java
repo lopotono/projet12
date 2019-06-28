@@ -90,4 +90,48 @@ public class ActivityDAOImpl extends AbstractDaoImpl implements ActivityDAO {
 	
 		return vListActivity;
 	}
+
+	public List<Activity> getListActivityByConf(String genre) {
+
+		String vSQL = "SELECT * FROM activity WHERE genre='conference'";
+		
+		ActivityRowMapper vRowMapper = new ActivityRowMapper();
+		
+		List<Activity> vListActivity = getJdbcTemplate().query(vSQL, vRowMapper);
+		
+		return vListActivity;
+	}
+
+	public List<Activity> getListActivityByVoyage(String genre) {
+
+		String vSQL = "SELECT * FROM activity WHERE genre='voyage'";
+		
+		ActivityRowMapper vRowMapper = new ActivityRowMapper();
+		
+		List<Activity> vListActivity = getJdbcTemplate().query(vSQL, vRowMapper);
+		
+		return vListActivity;
+	}
+
+	public List<Activity> getListActivityByVoyageplus(String genre) {
+
+		String vSQL = "SELECT * FROM activity WHERE genre='voyageplus'";
+		
+		ActivityRowMapper vRowMapper = new ActivityRowMapper();
+		
+		List<Activity> vListActivity = getJdbcTemplate().query(vSQL, vRowMapper);
+		
+		return vListActivity;
+	}
+
+	public List<Activity> getListActivityByAG(String genre) {
+
+		String vSQL = "SELECT * FROM activity WHERE genre='AG'";
+		
+		ActivityRowMapper vRowMapper = new ActivityRowMapper();
+		
+		List<Activity> vListActivity = getJdbcTemplate().query(vSQL, vRowMapper);
+		
+		return vListActivity;
+	}
 }
