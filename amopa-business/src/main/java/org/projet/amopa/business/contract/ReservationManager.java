@@ -15,4 +15,8 @@ public interface ReservationManager {
 	List<Reservation> getReservationByUser(int id);
 	
 	List<Reservation> getReservations();
+	
+	void deleteReservation(Reservation reservation);
+	
+	Reservation getReservation(int id);
 }
