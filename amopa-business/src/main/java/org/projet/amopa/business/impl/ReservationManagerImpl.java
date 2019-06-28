@@ -12,11 +12,7 @@ public class ReservationManagerImpl extends AbstractManager implements Reservati
 	}
 
 	public void insertReservation(Reservation reservation) {
-		getDaoFactory().getReservationDao().insertReservation(reservation);
-		// Récupérer l'id de l'activité
-		//List<Reservation> list = getDaoFactory().getReservationDao().getReservationByIdActivity(reservation.getId_activity());
-		
-		
+		getDaoFactory().getReservationDao().insertReservation(reservation);		
 	}
 
 	public List<Reservation> getReservationByIdActivity(int id) {
@@ -29,5 +25,13 @@ public class ReservationManagerImpl extends AbstractManager implements Reservati
 
 	public List<Reservation> getReservations() {
 		return getDaoFactory().getReservationDao().getReservations();
+	}
+
+	public void deleteReservation(Reservation reservation) {
+		getDaoFactory().getReservationDao().deleteReservation(reservation);
+	}
+
+	public Reservation getReservation(int id) {
+		return getDaoFactory().getReservationDao().getReservation(id);
 	}
 }
