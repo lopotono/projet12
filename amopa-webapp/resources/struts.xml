@@ -84,5 +84,18 @@
 			<result name="success">reservations/suivi.jsp</result>
 		</action>
 
+		<!-- Action lister les utilisateurs -->
+		<action name="listUser"
+			class="org.projet.amopa.webapp.action.ListUserAction"
+			method="execute">
+		</action>
+
+		<!-- Action supprimer une réservation -->
+		<action name="remove"
+			class="org.projet.amopa.webapp.action.RemoveReservationAction"
+			method="execute">
+			<result name="success">reservations/suivi.jsp</result>
+		</action>
+
 	</package>
 </struts>
