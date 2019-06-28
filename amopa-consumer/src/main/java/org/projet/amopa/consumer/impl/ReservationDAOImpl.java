@@ -78,4 +78,31 @@ public class ReservationDAOImpl extends AbstractDaoImpl implements ReservationDA
 		
 		return reservation;
 	}
+
+	public void deleteReservation(Reservation reservation) {
+
+		String vSQL = "DELETE FROM reservation WHERE id_reservation=:id_reservation";
+		
+		MapSqlParameterSource vParams = new MapSqlParameterSource();
+		vParams.addValue("id_reservation", reservation.getId(), Types.INTEGER);
+		
+		NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+		
+		try {
+			vJdbcTemplate.update(vSQL, vParams);
+		} catch (DuplicateKeyException vEx) {
+
+		}		
+	}
+
+	public Reservation getReservation(int id) {
+		
+		String vSQL = "SELECT * FROM reservation WHERE id_reservation=" + id;
+		
+		ReservationRowMapper vRowMapper = new ReservationRowMapper();
+		
+		List<Reservation> reservation = getJdbcTemplate().query(vSQL, vRowMapper);
+		
+		return reservation.get(0);
+	}
 }
