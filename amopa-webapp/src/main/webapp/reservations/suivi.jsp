@@ -63,6 +63,8 @@
 					<th scope="col">DATE DE RESERVATION</th>
 					<th scope="col">ACTIVITE</th>
 					<th scope="col">STATUT</th>
+					<th scope="col"></th>
+					<th scope="col"></th>
 				</tr>
 			</thead>
 
@@ -71,11 +73,16 @@
 					<tr>
 						<th scope="row"><s:property value="user.surname" /></th>
 						<td><s:property value="user.firstname" /></td>
-						<td><s:property value="participant" /></td>
+						<td><s:property value="reservation.participant" /></td>
 						<td><s:date name="datereservation" format="dd/MM/yyyy" /></td>
 						<td><s:property value="activity.title" /></td>
-						<td><a href="#" class="btn btn-success">COMFIRMER</a> <a
-							href="#" class="btn btn-danger">ANNULER</a></td>
+						<td><s:property value="etat" /></td>
+						<td><a href="#" class="btn btn-success">COMFIRMER</a></td>
+						<td><s:url action="remove" var="removelink">
+								<s:param name="id">
+									<s:property value="id" />
+								</s:param>
+							</s:url> <a href="${removelink}" class="btn btn-danger">ANNULER</a></td>
 					</tr>
 				</tbody>
 			</s:iterator>
