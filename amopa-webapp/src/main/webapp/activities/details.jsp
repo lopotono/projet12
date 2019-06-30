@@ -69,12 +69,21 @@
 								value="place" /></li>
 						<li class="list-group-item"><strong>Arrêts transport
 								en commun : </strong> <s:property value="station" /></li>
+						<li class="list-group-item list-group-item-success"><i>Observation ligne de bus :
+							Compte-tenu des modifications récentes des lignes de bus et des
+							perturbations fréquentes sur leurs trajets en raison de nombreux
+							travaux, nous vous laissons le soin si vous prenez ce moyen de
+							transport de vérifier la ligne de bus que vous êtes susceptible
+							d'utiliser.</i></li>
 						<li class="list-group-item"><strong>Nombre de places
 								disponibles : </strong> <s:property value="placesdisponibles" /> places</li>
 						<li class="list-group-item"><strong>Tarif par
 								personne : </strong> <s:property value="price" /> euros</li>
 						<li class="list-group-item"><strong>Tarif sesame par
 								personne : </strong> <s:property value="pricesesame" /> euros</li>
+						<li class="list-group-item list-group-item-danger"><strong>Date
+								limite d'inscription : <s:property value="datelimite" />
+						</strong>
 					</ul>
 				</s:iterator>
 			</div>
@@ -92,8 +101,8 @@
 				<br>
 				<form method="post" action="reserver" class="form-inline">
 					<div class="form-group mx-sm-3 mb-2">
-						<s:textfield name="reservation.nbreparticipants"
-							requiredLabel="true" placeholder=" Nombre de participants" />
+						<s:textfield name="nbreparticipants" requiredLabel="true"
+							placeholder=" Nombre de participants" />
 					</div>
 					<s:url action="reserver" var="reserverlink">
 						<s:param name="idactivity">
