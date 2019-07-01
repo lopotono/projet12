@@ -19,26 +19,17 @@ public class ReserverAction extends AbstractAction implements SessionAware {
 	private static final long serialVersionUID = -2445854816598260217L;
 	
 	private int idactivity;
-	private int iduser;
 	private Map<String, Object> session;
-	private List<Reservation> listReservation;
-	private int nbreparticipants;
-	private User vUser;
-		
+	private String nbreparticipants;
+	private Reservation reservation;
+	private Activity activity;
+	
 	public int getIdactivity() {
 		return idactivity;
 	}
 
 	public void setIdactivity(int idactivity) {
 		this.idactivity = idactivity;
-	}
-
-	public int getIduser() {
-		return iduser;
-	}
-
-	public void setIduser(int iduser) {
-		this.iduser = iduser;
 	}
 
 	public Map<String, Object> getSession() {
@@ -49,29 +40,29 @@ public class ReserverAction extends AbstractAction implements SessionAware {
 	public void setSession(Map<String, Object> session) {
 		this.session = session;		
 	}
-	
-	public List<Reservation> getListReservation() {
-		return listReservation;
-	}
-	
-	public void setListReservation(List<Reservation> listReservation) {
-		this.listReservation = listReservation;
-	}
-	
-	public int getNbreparticipants() {
+		
+	public String getNbreparticipants() {
 		return nbreparticipants;
 	}
 	
-	public void setNbreparticipants(int nbreparticipants) {
+	public void setNbreparticipants(String nbreparticipants) {
 		this.nbreparticipants = nbreparticipants;
 	}
-	
-	public User getvUser() {
-		return vUser;
+
+	public Reservation getReservation() {
+		return reservation;
 	}
 
-	public void setvUser(User vUser) {
-		this.vUser = vUser;
+	public void setReservation(Reservation reservation) {
+		this.reservation = reservation;
+	}
+
+	public Activity getActivity() {
+		return activity;
+	}
+
+	public void setActivity(Activity activity) {
+		this.activity = activity;
 	}
 
 	public String execute() {
@@ -80,7 +71,6 @@ public class ReserverAction extends AbstractAction implements SessionAware {
 		
 		// Récupérer id de l'activité
 		Activity activity = getManagerFactory().getActivityManager().getActivity(idactivity);
-		System.out.println(idactivity);
 		Reservation reservation = new Reservation();
 		// Insérer id de l'activité
 		reservation.setId_activity(activity.getIdactivity());
@@ -91,13 +81,13 @@ public class ReserverAction extends AbstractAction implements SessionAware {
 		// Récupérer la date du jour et insérer la date de réservation
 		Calendar calendar = Calendar.getInstance();
 		reservation.setDatereservation(calendar);
-		reservation.getNbreparticipants();
+		// Récupérer le nombre de participants
 		// Insérer le nombre de participants
-		reservation.setNbreparticipants(nbreparticipants);
-		System.out.println(nbreparticipants);
+		reservation.setNbreparticipants(Integer.parseInt(nbreparticipants));
 		// Passer l'état à "réservée"
 		reservation.setEtat("RESERVEE");
 		
+		List<Reservation> listReservation = getManagerFactory().getReservationManager().getListReservationByUserAndActivity(vUser.getIduser(), idactivity);
 		for (Reservation resa : listReservation) {
 			if (reservation.getId_activity() == resa.getId_activity()) {
 				addActionError("Vous avez déjà réservé cette activité !");
