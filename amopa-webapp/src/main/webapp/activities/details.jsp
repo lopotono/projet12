@@ -69,12 +69,12 @@
 								value="place" /></li>
 						<li class="list-group-item"><strong>Arrêts transport
 								en commun : </strong> <s:property value="station" /></li>
-						<li class="list-group-item list-group-item-success"><i>Observation ligne de bus :
-							Compte-tenu des modifications récentes des lignes de bus et des
-							perturbations fréquentes sur leurs trajets en raison de nombreux
-							travaux, nous vous laissons le soin si vous prenez ce moyen de
-							transport de vérifier la ligne de bus que vous êtes susceptible
-							d'utiliser.</i></li>
+						<li class="list-group-item list-group-item-success"><i>Observation
+								ligne de bus : Compte-tenu des modifications récentes des lignes
+								de bus et des perturbations fréquentes sur leurs trajets en
+								raison de nombreux travaux, nous vous laissons le soin si vous
+								prenez ce moyen de transport de vérifier la ligne de bus que
+								vous êtes susceptible d'utiliser.</i></li>
 						<li class="list-group-item"><strong>Nombre de places
 								disponibles : </strong> <s:property value="placesdisponibles" /> places</li>
 						<li class="list-group-item"><strong>Tarif par
@@ -104,16 +104,8 @@
 						<s:textfield name="nbreparticipants" requiredLabel="true"
 							placeholder=" Nombre de participants" />
 					</div>
-					<s:url action="reserver" var="reserverlink">
-						<s:param name="idactivity">
-							<s:property value="idactivity" />
-						</s:param>
-						<s:param name="iduser">
-							<s:property value="#session.user.iduser" />
-						</s:param>
-					</s:url>
-					<a href="${reserverlink}" class="btn btn-success">RESERVER
-						L'ACTIVITE</a>
+					<s:hidden name="idactivity" value="%{idactivity}" />
+					<s:submit value="RÉSERVER L'ACTIVITÉ" class="btn btn-success" />
 				</form>
 			</div>
 		</div>
