@@ -14,10 +14,9 @@ public class ActivityDAOImpl extends AbstractDaoImpl implements ActivityDAO {
 
 	public void addActivity(Activity activity) {
 
-		String vSQL = "INSERT INTO activity (image, title, genre, description, place, station, places_disponibles, hour, date, lieu, price, pricesesame, conferenciere) VALUES (:image,:title,:genre,:description,:place,:station,:places_disponibles,:hour,:date,:lieu,:price,:pricesesame,:conferenciere)";
+		String vSQL = "INSERT INTO activity (title, genre, description, place, station, places_disponibles, hour, date, lieu, price, pricesesame, conferenciere, datelimite) VALUES (:title,:genre,:description,:place,:station,:places_disponibles,:hour,:date,:lieu,:price,:pricesesame,:conferenciere,:datelimite)";
 
 		MapSqlParameterSource vParams = new MapSqlParameterSource();
-		vParams.addValue("image", activity.getImage(), Types.BINARY);
 		vParams.addValue("title", activity.getTitle(), Types.VARCHAR);
 		vParams.addValue("genre", activity.getGenre(), Types.VARCHAR);
 		vParams.addValue("description", activity.getDescription(), Types.VARCHAR);
@@ -30,7 +29,7 @@ public class ActivityDAOImpl extends AbstractDaoImpl implements ActivityDAO {
 		vParams.addValue("price", activity.getPrice(), Types.INTEGER);
 		vParams.addValue("pricesesame", activity.getPricesesame(), Types.INTEGER);
 		vParams.addValue("conferenciere", activity.getConferenciere(), Types.VARCHAR);
-		vParams.addValue("lienweb", activity.getLienweb(), Types.VARCHAR);
+		vParams.addValue("datelimite", activity.getDatelimite(), Types.VARCHAR);
 
 		NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 
@@ -71,7 +70,7 @@ public class ActivityDAOImpl extends AbstractDaoImpl implements ActivityDAO {
 		vParams.addValue("id_activity", idactivity, Types.INTEGER);
 
 		NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
-		
+
 		Integer value = vJdbcTemplate.queryForObject(vSQL, vParams, Integer.class);
 
 		if (value == null) {
@@ -81,57 +80,98 @@ public class ActivityDAOImpl extends AbstractDaoImpl implements ActivityDAO {
 	}
 
 	public List<Activity> getListActivityByConcert(String genre) {
-		
+
 		String vSQL = "SELECT * FROM activity WHERE genre='concert'";
-		
+
 		ActivityRowMapper vRowMapper = new ActivityRowMapper();
 
 		List<Activity> vListActivity = getJdbcTemplate().query(vSQL, vRowMapper);
-	
+
 		return vListActivity;
 	}
 
 	public List<Activity> getListActivityByConf(String genre) {
 
 		String vSQL = "SELECT * FROM activity WHERE genre='conference'";
-		
+
 		ActivityRowMapper vRowMapper = new ActivityRowMapper();
-		
+
 		List<Activity> vListActivity = getJdbcTemplate().query(vSQL, vRowMapper);
-		
+
 		return vListActivity;
 	}
 
 	public List<Activity> getListActivityByVoyage(String genre) {
 
 		String vSQL = "SELECT * FROM activity WHERE genre='voyage'";
-		
+
 		ActivityRowMapper vRowMapper = new ActivityRowMapper();
-		
+
 		List<Activity> vListActivity = getJdbcTemplate().query(vSQL, vRowMapper);
-		
+
 		return vListActivity;
 	}
 
 	public List<Activity> getListActivityByVoyageplus(String genre) {
 
 		String vSQL = "SELECT * FROM activity WHERE genre='voyageplus'";
-		
+
 		ActivityRowMapper vRowMapper = new ActivityRowMapper();
-		
+
 		List<Activity> vListActivity = getJdbcTemplate().query(vSQL, vRowMapper);
-		
+
 		return vListActivity;
 	}
 
 	public List<Activity> getListActivityByAG(String genre) {
 
 		String vSQL = "SELECT * FROM activity WHERE genre='AG'";
-		
+
 		ActivityRowMapper vRowMapper = new ActivityRowMapper();
-		
+
 		List<Activity> vListActivity = getJdbcTemplate().query(vSQL, vRowMapper);
-		
+
 		return vListActivity;
+	}
+
+	public List<Activity> getActivity() {
+
+		String vSQL = "SELECT * FROM activity ORDER BY title";
+
+		ActivityRowMapper vRowMapper = new ActivityRowMapper();
+
+		List<Activity> vListActivity = getJdbcTemplate().query(vSQL, vRowMapper);
+
+		return vListActivity;
+	}
+
+	public void updateActivity(Activity activity) {
+
+		String vSQL = "UPDATE activity SET title= :title,genre= :genre,description= :description,place= :place,station= :station,places_disponibles= :places_disponibles,hour= :hour,date= :date,lieu= :lieu,price= :price,pricesesame= :pricesesame,conferenciere= :conferenciere,datelimite= :datelimite WHERE id_activity= :idactivity";
+
+		MapSqlParameterSource vParams = new MapSqlParameterSource();
+		vParams.addValue("idactivity", activity.getIdactivity(), Types.INTEGER);
+		vParams.addValue("title", activity.getTitle(), Types.VARCHAR);
+		vParams.addValue("genre", activity.getGenre(), Types.VARCHAR);
+		vParams.addValue("description", activity.getDescription(), Types.VARCHAR);
+		vParams.addValue("place", activity.getPlace(), Types.VARCHAR);
+		vParams.addValue("station", activity.getStation(), Types.VARCHAR);
+		vParams.addValue("places_disponibles", activity.getPlacesdisponibles(), Types.INTEGER);
+		vParams.addValue("hour", activity.getHour(), Types.VARCHAR);
+		vParams.addValue("date", activity.getDate(), Types.VARCHAR);
+		vParams.addValue("lieu", activity.getLieu(), Types.VARCHAR);
+		vParams.addValue("price", activity.getPrice(), Types.INTEGER);
+		vParams.addValue("pricesesame", activity.getPricesesame(), Types.INTEGER);
+		vParams.addValue("conferenciere", activity.getConferenciere(), Types.VARCHAR);
+		vParams.addValue("datelimite", activity.getDatelimite(), Types.VARCHAR);
+
+		NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+
+		try {
+			vJdbcTemplate.update(vSQL, vParams);
+		} catch (DuplicateKeyException vEx) {
+
+		}
+
 	}
 }
