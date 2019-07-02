@@ -67,13 +67,13 @@
 					<th scope="col"></th>
 				</tr>
 			</thead>
-
-			<s:iterator value="listResa">
-				<tbody>
+			
+			<tbody>
+				<s:iterator value="listResa">
 					<tr>
 						<th scope="row"><s:property value="user.surname" /></th>
 						<td><s:property value="user.firstname" /></td>
-						<td><s:property value="reservation.participant" /></td>
+						<td><s:property value="nbreparticipants" /></td>
 						<td><s:date name="datereservation" format="dd/MM/yyyy" /></td>
 						<td><s:property value="activity.title" /></td>
 						<td><s:property value="etat" /></td>
@@ -84,8 +84,8 @@
 								</s:param>
 							</s:url> <a href="${removelink}" class="btn btn-danger">ANNULER</a></td>
 					</tr>
-				</tbody>
-			</s:iterator>
+				</s:iterator>
+			</tbody>
 		</table>
 	</div>
 
