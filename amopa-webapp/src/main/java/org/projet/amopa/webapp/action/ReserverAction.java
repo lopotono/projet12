@@ -86,17 +86,24 @@ public class ReserverAction extends AbstractAction implements SessionAware {
 		reservation.setNbreparticipants(Integer.parseInt(nbreparticipants));
 		// Passer l'état à "réservée"
 		reservation.setEtat("RESERVEE");
-		
+		activity.getPlacesdisponibles();
+
 		List<Reservation> listReservation = getManagerFactory().getReservationManager().getListReservationByUserAndActivity(vUser.getIduser(), idactivity);
 		for (Reservation resa : listReservation) {
 			if (reservation.getId_activity() == resa.getId_activity()) {
 				addActionError("Vous avez déjà réservé cette activité !");
 				return ActionSupport.ERROR;
 			}
-		}
-		
+		}		
 		// Insérer les données dans la table reservation
 		getManagerFactory().getReservationManager().insertReservation(reservation);
+		
+		// Décrementer le nombre de places disponibles
+		reservation.getNbreparticipants();		
+		int resultat = activity.getPlacesdisponibles() - reservation.getNbreparticipants();
+		activity.setPlacesdisponibles(resultat);
+		// Mise à jour des places disponibles
+		getManagerFactory().getActivityManager().updateActivity(activity);
 		vResult = ActionSupport.SUCCESS;
 		return vResult;		
 	}
