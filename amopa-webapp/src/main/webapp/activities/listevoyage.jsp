@@ -28,7 +28,7 @@
 			</div>
 		</header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<p class="brand">AMOPA PARIS XIXème-XXème</p>
+			<p class="brand">AMOPA PARIS XIXème-XXème</p>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -49,23 +49,32 @@
 			</div>
 		</nav>
 
+		<s:if test="hasActionErrors()">
+			<div class="alert alert-danger alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>Info !</strong>
+				<s:actionerror />
+			</div>
+		</s:if>
+
 		<div class="list-group">
 			<p class="list-group-item list-group-item-action active">LISTE
 				DES VOYAGES 1 JOUR</p>
 
 			<s:iterator value="listActivityVoyage">
-				<s:url action="detailsActivity" var="detailslink">
-					<s:param name="idactivity">
-						<s:property value="idactivity" />
-					</s:param>
-				</s:url>
-				<p class="list-group-item list-group-item-action">
-					<a href="${detailslink}"><s:property value="title" /></a>
-					<button type="button" class="btn btn-primary">
-						Nombre de places <span class="badge badge-light"><s:property
-								value="placesdisponibles" /></span>
-					</button>
-				</p>
+				<s:if test="placesdisponibles > 0">
+					<s:url action="detailsActivity" var="detailslink">
+						<s:param name="idactivity">
+							<s:property value="idactivity" />
+						</s:param>
+					</s:url>
+					<p class="list-group-item list-group-item-action">
+						<a href="${detailslink}"><s:property value="title" /></a> <small>
+							Nombre de places disponibles : <s:property
+								value="placesdisponibles" />
+						</small>
+					</p>
+				</s:if>
 			</s:iterator>
 		</div>
 
