@@ -23,6 +23,7 @@ public class ReserverAction extends AbstractAction implements SessionAware {
 	private String nbreparticipants;
 	private Reservation reservation;
 	private Activity activity;
+	private int total;
 	
 	public int getIdactivity() {
 		return idactivity;
@@ -63,6 +64,14 @@ public class ReserverAction extends AbstractAction implements SessionAware {
 
 	public void setActivity(Activity activity) {
 		this.activity = activity;
+	}
+
+	public int getTotal() {
+		return total;
+	}
+
+	public void setTotal(int total) {
+		this.total = total;
 	}
 
 	public String execute() {
@@ -106,6 +115,8 @@ public class ReserverAction extends AbstractAction implements SessionAware {
 		activity.setPlacesdisponibles(resultat);
 		// Mise à jour des places disponibles
 		getManagerFactory().getActivityManager().updateActivity(activity);
+		// Calcul du montant total pour la réservation de l'activité
+		total = activity.getPrice() * reservation.getNbreparticipants();
 		vResult = ActionSupport.SUCCESS;
 		return vResult;		
 	}
