@@ -62,7 +62,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<s:iterator value="listResa">
+				<s:iterator value="listActivityUser">
 					<tr>
 						<th scope="row"><s:property value="activity.title" /></th>
 						<td><s:property value="activity.date" /> à <s:property
