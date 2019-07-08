@@ -51,6 +51,15 @@
 				</ul>
 			</div>
 		</nav>
+
+		<s:if test="hasActionErrors()">
+			<div class="alert alert-danger alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>Info !</strong>
+				<s:actionerror />
+			</div>
+		</s:if>
+
 		<div class="jumbotron jumbotron-fluid">
 			<div class="container">
 				<s:iterator value="listDetails">
