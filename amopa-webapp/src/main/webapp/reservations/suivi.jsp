@@ -71,8 +71,8 @@
 			<tbody>
 				<s:iterator value="listResa">
 					<tr>
-						<th scope="row"><s:property value="user.surname" /></th>
-						<td><s:property value="user.firstname" /></td>
+						<th scope="row"><s:property value="vUser.surname" /></th>
+						<td><s:property value="vUser.firstname" /></td>
 						<td><s:property value="nbreparticipants" /></td>
 						<td><s:date name="datereservation" format="dd/MM/yyyy" /></td>
 						<td><s:property value="activity.title" /></td>
