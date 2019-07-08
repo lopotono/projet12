@@ -97,7 +97,8 @@
 		<action name="reserver"
 			class="org.projet.amopa.webapp.action.ReserverAction"
 			method="execute">
-			<result name="success" type="redirectAction">reservations/confirmation.jsp</result>
+			<result name="success">reservations/confirmation.jsp</result>
+			<result name="error">activities/details.jsp</result>
 		</action>
 
 		<!-- Action suivi des réservations -->
@@ -118,11 +119,37 @@
 			method="execute">
 		</action>
 
-		<!-- Action supprimer une réservation -->
+		<!-- Action supprimer une réservation par le trésorier -->
 		<action name="remove"
 			class="org.projet.amopa.webapp.action.RemoveReservationAction"
 			method="execute">
 			<result name="success">reservations/suivi.jsp</result>
+		</action>
+
+		<!-- Action annuler une réservation par l'utilisateur -->
+		<action name="canceled"
+			class="org.projet.amopa.webapp.action.CanceledReservationAction"
+			method="execute">
+			<result name="success">index</result>
+		</action>
+
+		<!-- Action afficher liste des activités -->
+		<action name="listActivity"
+			class="org.projet.amopa.webapp.action.ListActivityAction"
+			method="execute">
+			<result name="success">activities/listeactivity.jsp</result>
+		</action>
+
+		<!-- Action afficher formulaire places disponibles -->
+		<action name="form">
+			<result>tresorier/places.jsp</result>
+		</action>
+
+		<!-- Action formulaire places disponibles pour le trésorier -->
+		<action name="formPlaces"
+			class="org.projet.amopa.webapp.action.FormPlacesAction"
+			method="execute">
+			<result name="success">tresorier/places.jsp</result>
 		</action>
 
 	</package>
