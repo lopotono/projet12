@@ -71,13 +71,15 @@ public class ReserverAction extends AbstractAction implements SessionAware {
 		
 		// Récupérer id de l'activité
 		Activity activity = getManagerFactory().getActivityManager().getActivity(idactivity);
-		Reservation reservation = new Reservation();
+		reservation = new Reservation();
 		// Insérer id de l'activité
 		reservation.setId_activity(activity.getIdactivity());
+		reservation.setActivity(activity);
 		// Récupérer id de l'utilisateur
 		User vUser = (User) session.get("user");
 		// Insérer id de l'utilisateur
 		reservation.setId_user(vUser.getIduser());
+		reservation.setvUser(vUser);
 		// Récupérer la date du jour et insérer la date de réservation
 		Calendar calendar = Calendar.getInstance();
 		reservation.setDatereservation(calendar);
