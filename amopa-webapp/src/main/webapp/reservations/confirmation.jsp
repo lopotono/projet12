@@ -18,7 +18,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="icon" type="image/jpg" href="logo-amopa.jpg" />
+<link rel="icon" type="image/jpg" href="images/logo-amopa.jpg" />
 </head>
 <body>
 
@@ -35,20 +35,15 @@
 						M ou Mme
 						<s:property value="#session.user.surname" />
 						<s:property value="#session.user.firstname" />
-						avez réservé <strong> place(s)</strong> pour
-						<s:iterator value="listDetails">
-							<strong>l'activité <s:property value="title" /></strong>.<br>
-						Cette activité se déroulera le <strong><s:property
-									value="date" /> et l'heure de rendez-vous est à <s:property
-									value="hour" />.</strong>
-							<br>
-							<strong>Lieu : <s:property value="lieu" />.
-							</strong>
-						</s:iterator>
+						avez réservé <strong><s:property value="nbreparticipants" />
+							place(s)</strong> pour <strong>l'activité <s:property
+								value="reservation.activity.title" />
+						</strong>.<br> Cette activité se déroulera le <strong><s:property
+								value="reservation.activity.date" /> et l'heure de rendez-vous est à <s:property
+								value="reservation.activity.hour" />.</strong> <br> <strong>Lieu : <s:property
+								value="reservation.activity.lieu" />.						
+						</strong>
 					</p>
-					<p>Veuillez confirmer votre réservation.</p>
-					<s:a action="index" class="btn btn-success" id="e1">CONFIRMER</s:a>
-					<s:a action="index" class="btn btn-danger" id="e1">ANNULER</s:a>
 				</div>
 			</div>
 		</div>
@@ -59,11 +54,23 @@
 			Au reçu de votre chèque à l'ordre<strong> Amopa section
 				19-20E CCP n°3589523W la Source</strong>
 		</div>
+		<div class="alert alert-danger" role="alert">Inscrire au dos du
+			chèque le nom de l'activité.</div>
 		<div class="alert alert-danger" role="alert">Envoi du chèque à
 			l'adresse postale du trésorier : M TERRAGE Christian (boite 21) 28
 			rue du plateau 75019 PARIS.</div>
 		<div class="alert alert-success" role="alert">Vous recevrez par
 			la suite un SMS de confirmation.</div>
+		<div class="alert alert-primary" role="alert">
+			Veuillez confirmer votre réservation
+			<s:a action="index" class="btn btn-success" id="e1">CONFIRMER</s:a>
+			<s:url action="canceled" var="canceledlink">
+				<s:param name="id">
+					<s:property value="id" />
+				</s:param>
+			</s:url>
+			<a href="${canceledlink}" class="btn btn-danger">ANNULER</a>
+		</div>
 	</div>
 
 	<footer>
