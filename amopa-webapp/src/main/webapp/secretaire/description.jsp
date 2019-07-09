@@ -85,31 +85,42 @@ div {
 				<s:actionmessage />
 			</div>
 		</s:if>
-	</div>
 
+		<s:if test="hasActionErrors()">
+			<div class="alert alert-danger alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>Info !</strong>
+				<s:actionerror />
+			</div>
+		</s:if>
+
+	</div>
 
 	<div class="container">
 		<form method="post" action="addActivity">
 
-			<label for="fichier">Cliquer sur choisir un fichier pour
-				récupérer une image</label> <input type="file" class="form-control-file"
-				id="fichier"> <br> 
-				
-			<label for="fname">Titre de l'activité</label>
+			<input type="reset" name="activity.title" name="activity.genre"
+				name="activity.description" name="activity.place"
+				name="activity.station" name="activity.placesdisponibles"
+				name="activity.datelimite" name="activity.hour" name="activity.date"
+				name="activity.lieu" name="activity.price"
+				name="activity.pricesesame" name="activity.conferenciere"
+				value="effacer tous les champs"> <br> <br> <label
+				for="fname">Titre de l'activité</label>
 			<s:textfield name="activity.title" requiredLabel="true"
 				placeholder="TITRE DE L'ACTIVITÉ" class="form-group" />
 
 			<label for="genre">Type d'activité</label>
 			<s:textfield name="activity.genre" requiredLabel="true"
-				placeholder="Exemples : conférence, exposition, etc." />
+				placeholder="Exemples : conférence, exposition, voyage 1 jour, voyage plusieurs jours, AG, concert" />
 
 			<label for="description">La description de l'activité</label>
 			<s:textfield name="activity.description" rows="10"
 				placeholder="SAISIR ICI LA DESCRIPTION DE L'ACTIVITÉ" />
 
-			<label for="adresse">L'adresse de l'activité</label>
+			<label for="adresse">Lieu de l'activité</label>
 			<s:textfield name="activity.place" requiredLabel="true"
-				placeholder="ADRESSE DE L'ACTIVITE" />
+				placeholder="LIEU DE L'ACTIVITE" />
 
 			<label for="station">Nom de ou des stations</label>
 			<s:textfield name="activity.station" requiredLabel="true"
@@ -118,6 +129,10 @@ div {
 			<label for="places">Nombre de places disponibles</label>
 			<s:textfield name="activity.placesdisponibles" requiredLabel="true"
 				placeholder="SAISIR ICI LE NOMBRE DE PLACES DISPONIBLES" />
+
+			<label for="datelimite">Date limite d'inscription</label>
+			<s:textfield name="activity.datelimite" requiredLabel="true"
+				placeholder="Exemple de format à respecter : 1er septembre 2019" />
 
 			<div class="alert alert-primary" role="alert">Renseigner les
 				informations supplémentaires ci-dessous pour la confirmation d'une
@@ -131,7 +146,7 @@ div {
 			<s:textfield name="activity.date" requiredLabel="true"
 				placeholder="Exemple de format à respecter : MARDI 18 JUIN 2019" />
 
-			<label for="lieu">Le lieu de l'activité</label>
+			<label for="lieu">L'adresse complète de l'activité</label>
 			<s:textfield name="activity.lieu" requiredLabel="true"
 				placeholder="Exemple de format à respecter : à la grande Halle de la Villette PARIS 19" />
 
@@ -146,10 +161,6 @@ div {
 			<label for="conferenciere">Le nom de la conférencière</label>
 			<s:textfield name="activity.conferenciere" requiredLabel="true"
 				placeholder="Facultatif : Exemple de format à respecter : Mme Odile Dupeyrat" />
-
-			<label for="lienweb">Lien site web</label>
-			<s:textfield name="activity.lienweb" requiredLabel="true"
-				placeholder="Facultatif : Exemple de format à respecter : https://www.grandpalais.fr/fr/evenement/toulouse-lautrec" />
 
 			<s:submit value="ENREGISTRER LES INFORMATIONS SUR L'ACTIVITÉ"
 				class="btn btn-primary btn-lg" />
