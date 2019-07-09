@@ -31,25 +31,37 @@
 						<strong>RESERVATION DE VOTRE ACTIVITE</strong>
 					</h3>
 					<br>
-					<p class="lead">
-						M ou Mme
-						<s:property value="#session.user.surname" />
-						<s:property value="#session.user.firstname" />
-						avez réservé <strong><s:property value="nbreparticipants" />
-							place(s)</strong> pour <strong>l'activité <s:property
-								value="reservation.activity.title" />
-						</strong>.<br> Cette activité se déroulera le <strong><s:property
-								value="reservation.activity.date" /> et l'heure de rendez-vous est à <s:property
-								value="reservation.activity.hour" />.</strong> <br> <strong>Lieu : <s:property
-								value="reservation.activity.lieu" />.						
-						</strong>
-					</p>
+
+					<ul class="list-group">
+						<li class="list-group-item">M ou Mme <s:property
+								value="#session.user.surname" /> <s:property
+								value="#session.user.firstname" /> avez réservé <strong><s:property
+									value="nbreparticipants" /> place(s)</strong> pour <strong>l'activité
+								<s:property value="reservation.activity.title" />
+						</strong>.
+						</li>
+						<li class="list-group-item">Cette activité se déroulera le <strong><s:property
+									value="reservation.activity.date" />.</strong>
+						</li>
+						<li class="list-group-item">L'heure de rendez-vous est à <strong><s:property
+									value="reservation.activity.hour" />.</strong>
+						</li>
+						<li class="list-group-item">Lieu : <strong><s:property
+									value="reservation.activity.lieu" />. </strong></li>
+					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<div class="container">
+		<div class="alert alert-danger" role="alert">
+			Tarif normal :
+			<s:property value="reservation.activity.price" />
+			x
+			<s:property value="nbreparticipants" />
+			= <strong><s:property value="total" /> euros</strong>.
+		</div>
 		<div class="alert alert-danger" role="alert">
 			Au reçu de votre chèque à l'ordre<strong> Amopa section
 				19-20E CCP n°3589523W la Source</strong>
