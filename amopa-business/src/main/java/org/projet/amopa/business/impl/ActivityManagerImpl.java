@@ -54,4 +54,16 @@ public class ActivityManagerImpl extends AbstractManager implements ActivityMana
 	public List<Activity> getListActivityByAG(String genre) {
 		return getDaoFactory().getActivityDao().getListActivityByAG(genre);
 	}
+
+	public List<Activity> getActivity() {
+		return getDaoFactory().getActivityDao().getActivity();
+	}
+
+	public void updateActivity(Activity activity) {
+		getDaoFactory().getActivityDao().updateActivity(activity);
+	}
+
+	public int getActivityByPlacesId(int idactivity) {
+		return getDaoFactory().getActivityDao().getActivityByPlacesId(idactivity);
+	}
 }
