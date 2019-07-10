@@ -21,4 +21,10 @@ public interface ActivityManager {
 	List<Activity> getListActivityByVoyageplus(String genre);
 	
 	List<Activity> getListActivityByAG(String genre);
+	
+	List<Activity> getActivity();
+	
+	void updateActivity(Activity activity);
+	
+	int getActivityByPlacesId(int idactivity);
 }
