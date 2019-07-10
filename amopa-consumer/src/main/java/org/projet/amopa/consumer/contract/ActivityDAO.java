@@ -23,4 +23,8 @@ public interface ActivityDAO {
 	List<Activity> getListActivityByVoyageplus(String genre);
 	
 	List<Activity> getListActivityByAG(String genre);
+	
+	List<Activity> getActivity();
+	
+	void updateActivity(Activity activity);
 }
