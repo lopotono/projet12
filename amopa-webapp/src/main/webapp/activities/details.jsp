@@ -63,6 +63,29 @@
 		<div class="jumbotron jumbotron-fluid">
 			<div class="container">
 				<s:iterator value="listDetails">
+					<div class="text-center">
+						<s:if test="idactivity==5">
+							<img
+								src="images/toulouse-lautrec-l-exposition-au-grand-palais.jpg"
+								alt="toulouseLautrec" class="img-thumbnail">
+						</s:if>
+						<s:if test="idactivity==6">
+							<img src="images/jacquemart.jpg" alt="jacquemart"
+								class="img-thumbnail">
+						</s:if>
+						<s:if test="idactivity==7">
+							<img src="images/rousseau.jpg" alt="rousseau"
+								class="img-thumbnail">
+						</s:if>
+						<s:if test="idactivity==2">
+							<img src="images/luxembourg.png" alt="luxembourg"
+								class="img-thumbnail">
+						</s:if>
+						<s:if test="idactivity==9">
+							<img src="images/philharmonie.jpg" alt="philharmonie"
+								class="img-thumbnail">
+						</s:if>
+					</div>
 					<h2 class="display-4">
 						<s:property value="title" />
 					</h2>
