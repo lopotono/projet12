@@ -25,6 +25,7 @@
 			class="org.projet.amopa.webapp.action.AddActivityAction"
 			method="execute">
 			<result name="success">secretaire/description.jsp</result>
+			<result name="error">secretaire/description.jsp</result>
 		</action>
 
 		<!-- Action afficher formulaire activité -->
@@ -130,7 +131,7 @@
 		<action name="canceled"
 			class="org.projet.amopa.webapp.action.CanceledReservationAction"
 			method="execute">
-			<result name="success">index</result>
+			<result name="success">index.jsp</result>
 		</action>
 
 		<!-- Action afficher liste des activités -->
@@ -140,16 +141,26 @@
 			<result name="success">activities/listeactivity.jsp</result>
 		</action>
 
-		<!-- Action afficher formulaire places disponibles -->
-		<action name="form">
-			<result>tresorier/places.jsp</result>
-		</action>
-
 		<!-- Action formulaire places disponibles pour le trésorier -->
 		<action name="formPlaces"
 			class="org.projet.amopa.webapp.action.FormPlacesAction"
 			method="execute">
 			<result name="success">tresorier/places.jsp</result>
+		</action>
+
+		<!-- Action supprimer des places pour le trésorier -->
+		<action name="removePlaces"
+			class="org.projet.amopa.webapp.action.RemovePlacesAction"
+			method="execute">
+			<result name="input">tresorier/places.jsp</result>
+			<result name="success">tresorier/places.jsp</result>
+		</action>
+
+		<!-- Action consulter les réservations pour la secrétaire -->
+		<action name="consulter"
+			class="org.projet.amopa.webapp.action.ConsulterResaAction"
+			method="execute">
+			<result name="success">secretaire/consultation.jsp</result>
 		</action>
 
 	</package>
