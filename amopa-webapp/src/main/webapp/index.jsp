@@ -21,7 +21,8 @@
 </head>
 
 <body>
-	<div class="container">
+
+	<div class="container">	
 		<header>
 			<div class="text-center">
 				<img src="images/banniere_amopa.jpg" class="img-fluid"
@@ -55,10 +56,12 @@
 								<s:if test="#session.user.surname=='RESTOIN'">
 									<div class="dropdown-divider"></div>
 									<s:a action="formulaireActivity" class="dropdown-item">Description activité</s:a>
+									<s:a action="consulter" class="dropdown-item">Consulter les réservations</s:a>
 								</s:if>
 								<s:if test="#session.user.surname=='TERRAGE'">
 									<div class="dropdown-divider"></div>
 									<s:a action="suivi" class="dropdown-item">Suivi des Réservations</s:a>
+									<s:a action="formPlaces" class="dropdown-item">Formulaire places</s:a>
 								</s:if>
 							</div></li>
 						<li class="nav-item"><a class="nav-link" href="#">INFORMATIONS
@@ -78,6 +81,9 @@
 				<s:a action="login" class="btn btn-info btn-lg" role="button"
 					data-toggle="modal" data-target="#exampleModalCenter">Se connecter</s:a>
 			</div>
+			<div class="alert alert-primary" role="alert">
+				<s:a action="listActivity">Informations sur les activités proposées tout au long de l'année.</s:a>
+			</div>
 		</s:else>
 
 		<!-- Modal -->
@@ -92,27 +98,35 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<div class="modal-body">
-						Vous êtes connecté sous le nom de
-						<s:property value="#session.user.surname" />
-					</div>
 				</div>
 			</div>
 		</div>
 
+		<s:if test="hasActionMessages()">
+			<div class="alert alert-info alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>Info!</strong>
+				<s:actionmessage />
+			</div>
+		</s:if>
+
 		<br>
-		<div class="row">
-			<div class="col-lg-4">
-				<img src="images/paris-19e-arrondissement.png" alt="blason19paris"
-					width="150">
-			</div>
-			<div class="col-lg-4">
-				<img src="images/logoParis.jpg" alt="logoParis" class="img-rounded"
-					width="150">
-			</div>
-			<div class="col-lg-2">
-				<img src="images/Blason_20ème_Arrondissement.jpg"
-					alt="blason20paris" width="150">
+		<div class="container">
+			<div class="text-center">
+				<div class="row justify-content-center">
+					<div class="col-lg-4">
+						<img src="images/paris-19e-arrondissement.png" alt="blason19paris"
+							width="150">
+					</div>
+					<div class="col-lg-4">
+						<img src="images/logoParis.jpg" alt="logoParis"
+							class="img-rounded" width="150">
+					</div>
+					<div class="col-lg-4">
+						<img src="images/Blason_20ème_Arrondissement.jpg"
+							alt="blason20paris" width="150">
+					</div>
+				</div>
 			</div>
 		</div>
 
