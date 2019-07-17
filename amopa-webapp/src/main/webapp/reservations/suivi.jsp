@@ -60,14 +60,14 @@
 					<th scope="col">NOM</th>
 					<th scope="col">PRENOM</th>
 					<th scope="col">PLACE(S)</th>
-					<th scope="col">DATE DE RESERVATION</th>
+					<th scope="col">DATE</th>
 					<th scope="col">ACTIVITE</th>
 					<th scope="col">STATUT</th>
 					<th scope="col"></th>
 					<th scope="col"></th>
 				</tr>
 			</thead>
-			
+
 			<tbody>
 				<s:iterator value="listResa">
 					<tr>
@@ -77,12 +77,22 @@
 						<td><s:date name="datereservation" format="dd/MM/yyyy" /></td>
 						<td><s:property value="activity.title" /></td>
 						<td><s:property value="etat" /></td>
-						<td><a href="#" class="btn btn-success">COMFIRMER</a></td>
-						<td><s:url action="remove" var="removelink">
-								<s:param name="id">
-									<s:property value="id" />
-								</s:param>
-							</s:url> <a href="${removelink}" class="btn btn-danger">ANNULER</a></td>
+						<s:if test="etat=='RESERVEE'">
+							<td><s:url action="confirmer" var="confirmerlink">
+									<s:param name="id">
+										<s:property value="id" />
+									</s:param>
+								</s:url><a href="${confirmerlink}" class="btn btn-success">CONFIRMER</a>
+							</td>
+							<td><s:url action="remove" var="removelink">
+									<s:param name="id">
+										<s:property value="id" />
+									</s:param>
+								</s:url> <a href="${removelink}" class="btn btn-danger">ANNULER</a></td>
+						</s:if>
+						<s:else>
+							<td colspan="2"><i><strong>Réservation confirmée</strong></i></td>
+						</s:else>
 					</tr>
 				</s:iterator>
 			</tbody>
