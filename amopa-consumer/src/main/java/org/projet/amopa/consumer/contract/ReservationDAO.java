@@ -19,4 +19,10 @@ public interface ReservationDAO {
 	void deleteReservation(Reservation reservation);
 	
 	Reservation getReservation(int id);
+	
+	void canceledReservation(Reservation reservation);
+	
+	void updateReservation(Reservation reservation);
+	
+	void confirmerReservation(Reservation reservation);
 }
