@@ -54,4 +54,12 @@ public class ReservationManagerImpl extends AbstractManager implements Reservati
 	public void canceledReservation(Reservation reservation) {
 		getDaoFactory().getReservationDao().canceledReservation(reservation);	
 	}
+
+	public void updateReservation(Reservation reservation) {
+		getDaoFactory().getReservationDao().updateReservation(reservation);
+	}
+
+	public void confirmerReservation(Reservation reservation) {
+		getDaoFactory().getReservationDao().confirmerReservation(reservation);		
+	}
 }
