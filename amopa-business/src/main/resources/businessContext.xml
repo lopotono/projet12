@@ -5,6 +5,27 @@
             http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<bean id="projetMailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="terragef@gmail.com" />
+		<property name="password" value="Innelec_27" />
+		<property name="protocol" value="smtp" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="datasource.url">jdbc:postgresql://localhost:5432/db_amopa</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="mailSender"
+		class="org.projet.amopa.business.mail.MailSender">
+		<property name="javaMailSender" ref="projetMailSender" />
+	</bean>
+
 	<bean id="txManagerActivity"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSourceAmopa"></property>
@@ -14,6 +35,7 @@
 		<property name="daoFactory" ref="daoFactory" />
 		<property name="platformTransactionManager"
 			ref="txManagerActivity" />
+		<property name="ms" ref="mailSender" />
 	</bean>
 
 	<bean id="userManager"
