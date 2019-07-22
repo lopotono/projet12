@@ -1,5 +1,7 @@
 package org.projet.amopa.business.impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.projet.amopa.business.contract.ReservationManager;
@@ -14,7 +16,12 @@ public class ReservationManagerImpl extends AbstractManager implements Reservati
 	}
 
 	public void insertReservation(Reservation reservation) {
-		getDaoFactory().getReservationDao().insertReservation(reservation);		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		Date dateReserve = reservation.getDatereservation();
+		String body = "Le " + sdf.format(dateReserve) + ", vous avez réservé " + reservation.getNbreparticipants()
+				+ " place(s) pour l'activité " + reservation.getActivity().getTitle() + ".";
+		getMs().sendMail("terragef@gmail.com", reservation.getvUser().getMail(), "Réservation d'une activité", body);
+		getDaoFactory().getReservationDao().insertReservation(reservation);
 	}
 
 	public List<Reservation> getReservationByIdActivity(int id) {
@@ -48,11 +55,16 @@ public class ReservationManagerImpl extends AbstractManager implements Reservati
 	}
 
 	public Reservation getReservation(int id) {
-		return getDaoFactory().getReservationDao().getReservation(id);
+		Reservation resa = getDaoFactory().getReservationDao().getReservation(id);
+		User user = getDaoFactory().getUserDao().getUser(resa.getId_user());
+		resa.setvUser(user);
+		Activity activity = getDaoFactory().getActivityDao().getActivity(resa.getId_activity());
+		resa.setActivity(activity);
+		return resa;
 	}
 
 	public void canceledReservation(Reservation reservation) {
-		getDaoFactory().getReservationDao().canceledReservation(reservation);	
+		getDaoFactory().getReservationDao().canceledReservation(reservation);
 	}
 
 	public void updateReservation(Reservation reservation) {
@@ -60,6 +72,10 @@ public class ReservationManagerImpl extends AbstractManager implements Reservati
 	}
 
 	public void confirmerReservation(Reservation reservation) {
-		getDaoFactory().getReservationDao().confirmerReservation(reservation);		
+		String subject = "Confirmation de votre réservation.";
+		String body = "Votre réservation du " + reservation.getDatereservation() + " pour l'activité " + reservation.getActivity().getTitle()
+				+ " est confirmée. Vous recevrez par la suite un courriel de rappel.";		
+		getMs().sendMail("terragef@gmail.com", reservation.getvUser().getMail(), subject, body);
+		getDaoFactory().getReservationDao().confirmerReservation(reservation);
 	}
 }
