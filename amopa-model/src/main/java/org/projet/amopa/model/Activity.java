@@ -1,30 +1,23 @@
 package org.projet.amopa.model;
 
+import java.util.Calendar;
+
 public class Activity {
 	
 	private int idactivity;
-	private Byte image;
 	private String title;
 	private String description;
 	private String place;
 	private String station;
 	private String genre;
 	private int placesdisponibles;
-	private String date;
+	private Calendar date;
 	private String hour;
 	private String lieu;
 	private int price;
-	private int pricesesame;
+	private String pricesesame;
 	private String conferenciere;
-	private String lienweb;
-
-	public Byte getImage() {
-		return image;
-	}
-
-	public void setImage(Byte image) {
-		this.image = image;
-	}
+	private Calendar datelimite;
 
 	public int getIdactivity() {
 		return idactivity;
@@ -82,11 +75,11 @@ public class Activity {
 		this.placesdisponibles = placesdisponibles;
 	}
 
-	public String getDate() {
+	public Calendar getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Calendar date) {
 		this.date = date;
 	}
 
@@ -114,11 +107,11 @@ public class Activity {
 		this.price = price;
 	}
 
-	public int getPricesesame() {
+	public String getPricesesame() {
 		return pricesesame;
 	}
 
-	public void setPricesesame(int pricesesame) {
+	public void setPricesesame(String pricesesame) {
 		this.pricesesame = pricesesame;
 	}
 
@@ -130,11 +123,11 @@ public class Activity {
 		this.conferenciere = conferenciere;
 	}
 
-	public String getLienweb() {
-		return lienweb;
+	public Calendar getDatelimite() {
+		return datelimite;
 	}
 
-	public void setLienweb(String lienweb) {
-		this.lienweb = lienweb;
+	public void setDatelimite(Calendar datelimite) {
+		this.datelimite = datelimite;
 	}
 }
