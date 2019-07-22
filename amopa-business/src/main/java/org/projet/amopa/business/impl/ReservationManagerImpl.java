@@ -1,7 +1,5 @@
 package org.projet.amopa.business.impl;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import org.projet.amopa.business.contract.ReservationManager;
@@ -16,9 +14,7 @@ public class ReservationManagerImpl extends AbstractManager implements Reservati
 	}
 
 	public void insertReservation(Reservation reservation) {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		Date dateReserve = reservation.getDatereservation();
-		String body = "Le " + sdf.format(dateReserve) + ", vous avez réservé " + reservation.getNbreparticipants()
+		String body = "Ce courriel vous informe que vous avez bien réservé " + reservation.getNbreparticipants()
 				+ " place(s) pour l'activité " + reservation.getActivity().getTitle() + ".";
 		getMs().sendMail("terragef@gmail.com", reservation.getvUser().getMail(), "Réservation d'une activité", body);
 		getDaoFactory().getReservationDao().insertReservation(reservation);
@@ -73,7 +69,7 @@ public class ReservationManagerImpl extends AbstractManager implements Reservati
 
 	public void confirmerReservation(Reservation reservation) {
 		String subject = "Confirmation de votre réservation.";
-		String body = "Votre réservation du " + reservation.getDatereservation() + " pour l'activité " + reservation.getActivity().getTitle()
+		String body = "Votre réservation pour l'activité " + reservation.getActivity().getTitle()
 				+ " est confirmée. Vous recevrez par la suite un courriel de rappel.";		
 		getMs().sendMail("terragef@gmail.com", reservation.getvUser().getMail(), subject, body);
 		getDaoFactory().getReservationDao().confirmerReservation(reservation);
