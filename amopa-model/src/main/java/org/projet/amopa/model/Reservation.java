@@ -1,6 +1,7 @@
 package org.projet.amopa.model;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class Reservation {
 	
@@ -13,6 +14,8 @@ public class Reservation {
 	private Calendar daterappelsms;
 	private int id_user;
 	private int id_activity;
+	private Activity activity;
+	private User vUser;
 	
 	public int getId() {
 		return id;
@@ -20,7 +23,7 @@ public class Reservation {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+			
 	public Calendar getDatereservation() {
 		return datereservation;
 	}
@@ -72,8 +75,22 @@ public class Reservation {
 	
 	public int getId_activity() {
 		return id_activity;
-	}
+	}	
 	public void setId_activity(int id_activity) {
 		this.id_activity = id_activity;
+	}
+	
+	public Activity getActivity() {
+		return activity;
+	}
+	public void setActivity(Activity activity) {
+		this.activity = activity;
+	}
+	
+	public User getvUser() {
+		return vUser;
+	}
+	public void setvUser(User vUser) {
+		this.vUser = vUser;
 	}
 }
