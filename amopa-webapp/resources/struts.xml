@@ -47,6 +47,13 @@
 			<result name="success">activities/listeconcert.jsp</result>
 		</action>
 
+		<!-- Action afficher la liste des théâtres -->
+		<action name="listActivityTheatre"
+			class="org.projet.amopa.webapp.action.ListActivityTheatreAction"
+			method="execute">
+			<result name="success">activities/listetheatre.jsp</result>
+		</action>
+
 		<!-- Action afficher la liste des conférences -->
 		<action name="listActivityConf"
 			class="org.projet.amopa.webapp.action.ListActivityConfAction"
@@ -80,6 +87,13 @@
 			class="org.projet.amopa.webapp.action.DetailsActivityAction"
 			method="execute">
 			<result name="success">activities/details.jsp</result>
+		</action>
+
+		<!-- Action afficher détails des activités pour le visiteur -->
+		<action name="detailsVisiteurActivity"
+			class="org.projet.amopa.webapp.action.DetailsVisiteAction"
+			method="execute">
+			<result name="success">activities/detailsvisite.jsp</result>
 		</action>
 
 		<!-- Action afficher contact -->
@@ -161,6 +175,13 @@
 			class="org.projet.amopa.webapp.action.ConsulterResaAction"
 			method="execute">
 			<result name="success">secretaire/consultation.jsp</result>
+		</action>
+
+		<!-- Action confirmer les réservations par le trésorier -->
+		<action name="confirmer"
+			class="org.projet.amopa.webapp.action.ConfirmerAction"
+			method="execute">
+			<result name="success">reservations/suivi.jsp</result>
 		</action>
 
 	</package>
