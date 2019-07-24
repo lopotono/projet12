@@ -19,10 +19,15 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="icon" type="image/jpg" href="images/logo-amopa.jpg" />
 </head>
-
+<style>
+.jumbotron {
+	background-color: #e3f2fd;
+	text-align: center;
+}
+</style>
 <body>
 
-	<div class="container">	
+	<div class="container">
 		<header>
 			<div class="text-center">
 				<img src="images/banniere_amopa.jpg" class="img-fluid"
@@ -52,16 +57,27 @@
 								<s:a action="listActivityVoyagePlus" class="dropdown-item">Voyage plusieurs jours</s:a>
 								<s:a action="listAG" class="dropdown-item">AG</s:a>
 								<s:a action="listActivityConcert" class="dropdown-item">
-									Concert/Théatre</s:a>
+									Concerts</s:a>
+								<s:a action="listActivityTheatre" class="dropdown-item">Théâtres</s:a>
+								<div class="dropdown-divider"></div>
+								<s:a action="historique" class="dropdown-item">Historique de vos réservations</s:a>
 								<s:if test="#session.user.surname=='RESTOIN'">
 									<div class="dropdown-divider"></div>
-									<s:a action="formulaireActivity" class="dropdown-item">Description activité</s:a>
-									<s:a action="consulter" class="dropdown-item">Consulter les réservations</s:a>
+									<s:a action="formulaireActivity" class="dropdown-item">
+										<strong>Ajouter une activité</strong>
+									</s:a>
+									<s:a action="consulter" class="dropdown-item">
+										<strong>Consulter les réservations</strong>
+									</s:a>
 								</s:if>
 								<s:if test="#session.user.surname=='TERRAGE'">
 									<div class="dropdown-divider"></div>
-									<s:a action="suivi" class="dropdown-item">Suivi des Réservations</s:a>
-									<s:a action="formPlaces" class="dropdown-item">Formulaire places</s:a>
+									<s:a action="suivi" class="dropdown-item">
+										<strong>Suivre les Réservations</strong>
+									</s:a>
+									<s:a action="formPlaces" class="dropdown-item">
+										<strong>Formulaire des places</strong>
+									</s:a>
 								</s:if>
 							</div></li>
 						<li class="nav-item"><a class="nav-link" href="#">INFORMATIONS
@@ -76,13 +92,13 @@
 			</div>
 		</nav>
 		<s:else>
+			<div class="alert alert-primary" role="alert">
+				<s:a action="listActivity"><strong>Informations sur les activités proposées tout au long de l'année.</strong></s:a>
+			</div>
 			<div class="alert alert-danger" role="alert">
-				Vous devez vous connecter pour accéder aux différentes rubriques
+				Vous devez vous connecter pour accéder aux différentes activités
 				<s:a action="login" class="btn btn-info btn-lg" role="button"
 					data-toggle="modal" data-target="#exampleModalCenter">Se connecter</s:a>
-			</div>
-			<div class="alert alert-primary" role="alert">
-				<s:a action="listActivity">Informations sur les activités proposées tout au long de l'année.</s:a>
 			</div>
 		</s:else>
 
@@ -110,41 +126,41 @@
 			</div>
 		</s:if>
 
-		<br>
-		<div class="container">
-			<div class="text-center">
-				<div class="row justify-content-center">
-					<div class="col-lg-4">
-						<img src="images/paris-19e-arrondissement.png" alt="blason19paris"
-							width="150">
-					</div>
-					<div class="col-lg-4">
-						<img src="images/logoParis.jpg" alt="logoParis"
-							class="img-rounded" width="150">
-					</div>
-					<div class="col-lg-4">
-						<img src="images/Blason_20ème_Arrondissement.jpg"
-							alt="blason20paris" width="150">
+		<div class="jumbotron">
+			<div class="container">
+				<div class="text-center">
+					<div class="row justify-content-center">
+						<div class="col-lg-4">
+							<img src="images/paris-19e-arrondissement.png"
+								alt="blason19paris" width="150">
+						</div>
+						<div class="col-lg-4">
+							<img src="images/logoParis.jpg" alt="logoParis"
+								class="img-rounded" width="150">
+						</div>
+						<div class="col-lg-4">
+							<img src="images/Blason_20ème_Arrondissement.jpg"
+								alt="blason20paris" width="150">
+						</div>
 					</div>
 				</div>
 			</div>
+
+			<br>
+			<blockquote class="blockquote text-justify">
+				<p>
+					La section a été créée en 1972 de l’AMOPA nationale en vue de
+					contribuer au développement d'actions éducatives en faveur de la
+					jeunesse, de valoriser l'action des équipes pédagogiques tout en
+					organisant des manifestations culturelles, scientifiques ou
+					artistiques destinées à entretenir des relations amicales et
+					conviviales.<br>Chers adhérents et sympathisants, nous vous
+					proposons de passer à la rubrique « activités » pour nous rejoindre
+					et partager nos propositions en vous y inscrivant.
+				</p>
+			</blockquote>
 		</div>
-
-		<br>
-		<blockquote class="blockquote text-justify">
-			<p>
-				La section a été créée en 1972 de l’AMOPA nationale en vue de
-				contribuer au développement d'actions éducatives en faveur de la
-				jeunesse, de valoriser l'action des équipes pédagogiques tout en
-				organisant des manifestations culturelles, scientifiques ou
-				artistiques destinées à entretenir des relations amicales et
-				conviviales.<br>Chers adhérents et sympathisants, nous vous
-				proposons de passer à la rubrique « activités » pour nous rejoindre
-				et partager nos propositions en vous y inscrivant.
-			</p>
-		</blockquote>
 	</div>
-
 	<footer>
 		<div class="footer-copyright text-center py-3">
 			© 2019 Copyright: <a href="http://www.amopa.asso.fr/">Amopa</a>
