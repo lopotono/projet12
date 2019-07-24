@@ -38,10 +38,10 @@
 								value="#session.user.firstname" /> avez réservé <strong><s:property
 									value="nbreparticipants" /> place(s)</strong> pour <strong>l'activité
 								<s:property value="reservation.activity.title" />
-						</strong>.
+						</strong>
 						</li>
-						<li class="list-group-item">Cette activité se déroulera le <strong><s:property
-									value="reservation.activity.date" />.</strong>
+						<li class="list-group-item">Cette activité se déroulera le <strong><s:date
+									name="reservation.activity.date" format="dd/MM/yyyy" />.</strong>
 						</li>
 						<li class="list-group-item">L'heure de rendez-vous est à <strong><s:property
 									value="reservation.activity.hour" />.</strong>
@@ -71,14 +71,11 @@
 		<div class="alert alert-danger" role="alert">Envoi du chèque à
 			l'adresse postale du trésorier : M TERRAGE Christian (boite 21) 28
 			rue du plateau 75019 PARIS.</div>
-		<div class="alert alert-success" role="alert">Vous recevrez par
-			la suite un SMS de confirmation.</div>
-		<div class="alert alert-primary" role="alert">
-			Veuillez confirmer votre réservation
+		<div class="alert alert-success" role="alert">Vous avez reçu un courriel de confirmation.
 			<s:a action="index" class="btn btn-success" id="e1">CONFIRMER</s:a>
 			<s:url action="canceled" var="canceledlink">
 				<s:param name="id">
-					<s:property value="id" />
+					<s:property value="reservation.id" />
 				</s:param>
 			</s:url>
 			<a href="${canceledlink}" class="btn btn-danger">ANNULER</a>
