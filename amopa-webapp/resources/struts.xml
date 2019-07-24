@@ -120,6 +120,97 @@
 		<action name="suivi">
 			<result>reservations/suivi.jsp</result>
 		</action>
+		
+		<!-- Action page modifier activité fonctionnalité de la secrétaire -->
+		<action name="modifier"
+			class="org.projet.amopa.webapp.action.ModifierAction"
+			method="execute">
+			<result name="success">secretaire/modifier.jsp</result>
+		</action>
+
+		<!-- Action modifier une information d'une activité par la secrétaire -->
+		<action name="changeField"
+			class="org.projet.amopa.webapp.action.ChangeAction" method="execute">
+			<result name="input">secretaire/modifier.jsp</result>
+			<result name="success">secretaire/modifier.jsp</result>
+		</action>
+		
+		<!-- Action modifier genre de l'activité par la secrétaire -->
+		<action name="changeGenre"
+			class="org.projet.amopa.webapp.action.ChangeGenreAction" method="execute">
+			<result name="input">secretaire/modifier.jsp</result>
+			<result name="success">secretaire/modifier.jsp</result>
+		</action>
+		
+		<!-- Action modifier description de l'activité par la secrétaire -->
+		<action name="changeDescription"
+			class="org.projet.amopa.webapp.action.ChangeDescriptionAction" method="execute">
+			<result name="input">secretaire/modifier.jsp</result>
+			<result name="success">secretaire/modifier.jsp</result>
+		</action>
+		
+		<!-- Action modifier lieu de l'activité par la secrétaire -->
+		<action name="changeLieu"
+			class="org.projet.amopa.webapp.action.ChangeLieuAction" method="execute">
+			<result name="input">secretaire/modifier.jsp</result>
+			<result name="success">secretaire/modifier.jsp</result>
+		</action>
+		
+		<!-- Action modifier station de l'activité par la secrétaire -->
+		<action name="changeStation"
+			class="org.projet.amopa.webapp.action.ChangeStationAction" method="execute">
+			<result name="input">secretaire/modifier.jsp</result>
+			<result name="success">secretaire/modifier.jsp</result>
+		</action>
+		
+		<!-- Action modifier places disponibles de l'activité par la secrétaire -->
+		<action name="changePlaces"
+			class="org.projet.amopa.webapp.action.ChangePlacesAction" method="execute">
+			<result name="input">secretaire/modifier.jsp</result>
+			<result name="success">secretaire/modifier.jsp</result>
+		</action>
+		
+		<!-- Action modifier date limite de l'activité par la secrétaire -->
+		<action name="changeDatelimite"
+			class="org.projet.amopa.webapp.action.ChangeDateLimiteAction" method="execute">
+			<result name="input">secretaire/modifier.jsp</result>
+			<result name="success">secretaire/modifier.jsp</result>
+		</action>
+		
+		<!-- Action modifier l'heure de l'activité par la secrétaire -->
+		<action name="changeHeure"
+			class="org.projet.amopa.webapp.action.ChangeHeureAction" method="execute">
+			<result name="input">secretaire/modifier.jsp</result>
+			<result name="success">secretaire/modifier.jsp</result>
+		</action>
+		
+		<!-- Action modifier l'adresse de l'activité par la secrétaire -->
+		<action name="changeAdresse"
+			class="org.projet.amopa.webapp.action.ChangeAdresseAction" method="execute">
+			<result name="input">secretaire/modifier.jsp</result>
+			<result name="success">secretaire/modifier.jsp</result>
+		</action>
+		
+		<!-- Action modifier le prix de l'activité par la secrétaire -->
+		<action name="changePrice"
+			class="org.projet.amopa.webapp.action.ChangePriceAction" method="execute">
+			<result name="input">secretaire/modifier.jsp</result>
+			<result name="success">secretaire/modifier.jsp</result>
+		</action>
+		
+		<!-- Action modifier le prix sesame de l'activité par la secrétaire -->
+		<action name="changePricesesame"
+			class="org.projet.amopa.webapp.action.ChangePriceSesameAction" method="execute">
+			<result name="input">secretaire/modifier.jsp</result>
+			<result name="success">secretaire/modifier.jsp</result>
+		</action>
+		
+		<!-- Action modifier la conférencière de l'activité par la secrétaire -->
+		<action name="changeConferenciere"
+			class="org.projet.amopa.webapp.action.ChangeConferenciereAction" method="execute">
+			<result name="input">secretaire/modifier.jsp</result>
+			<result name="success">secretaire/modifier.jsp</result>
+		</action>
 
 		<!-- Action actualiser les réservations -->
 		<action name="actualiser"
