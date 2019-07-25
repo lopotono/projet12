@@ -15,4 +15,5 @@
 
 #### POUR LA SECRETAIRE :
 - Renseigner sur une page web toutes les informations d'une activité.
+- Pouvoir modifier une information d'une activité.
 - Consulter la page des réservations.
