@@ -125,18 +125,10 @@ public class ReservationDAOImpl extends AbstractDaoImpl implements ReservationDA
 
 	public void updateReservation(Reservation reservation) {
 
-		String vSQL = "UPDATE reservation SET date_reservation= :date_reservation, participant= :participant, etat= :etat, date_reservation_sms= :date_reservation_sms, date_confirmation_sms= :date_confirmation_sms, date_rappel_sms= :date_rappel_sms, id_activity= :id_activity, id_utilisateur= :id_utilisateur WHERE id_reservation= :id";
-
+		String vSQL = "UPDATE reservation SET etat= :etat WHERE id_reservation= :id";
 		MapSqlParameterSource vParams = new MapSqlParameterSource();
 		vParams.addValue("id", reservation.getId(), Types.INTEGER);
-		vParams.addValue("date_reservation", reservation.getDatereservation(), Types.DATE);
-		vParams.addValue("participant", reservation.getNbreparticipants(), Types.INTEGER);
 		vParams.addValue("etat", reservation.getEtat(), Types.VARCHAR);
-		vParams.addValue("date_reservation_sms", reservation.getDateresasms(), Types.DATE);
-		vParams.addValue("date_confirmation_sms", reservation.getDateconfsms(), Types.DATE);
-		vParams.addValue("date_rappel_sms", reservation.getDaterappelsms(), Types.DATE);
-		vParams.addValue("id_activity", reservation.getId_activity(), Types.INTEGER);
-		vParams.addValue("id_utilisateur", reservation.getId_user(), Types.INTEGER);
 
 		NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 

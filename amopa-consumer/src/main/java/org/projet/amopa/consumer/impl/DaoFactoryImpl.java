@@ -1,6 +1,7 @@
 package org.projet.amopa.consumer.impl;
 
 import org.projet.amopa.consumer.contract.ActivityDAO;
+import org.projet.amopa.consumer.contract.AddressDAO;
 import org.projet.amopa.consumer.contract.DaoFactory;
 import org.projet.amopa.consumer.contract.ReservationDAO;
 import org.projet.amopa.consumer.contract.UserDAO;
@@ -10,6 +11,7 @@ public class DaoFactoryImpl implements DaoFactory {
 	private UserDAO userDao;
 	private ActivityDAO activityDao;
 	private ReservationDAO reservationDao;
+	private AddressDAO addressDao;
 
 	public UserDAO getUserDao() {
 		return userDao;
@@ -33,5 +35,13 @@ public class DaoFactoryImpl implements DaoFactory {
 
 	public void setReservationDao(ReservationDAO reservationDao) {
 		this.reservationDao = reservationDao;
+	}
+
+	public AddressDAO getAddressDao() {
+		return addressDao;
+	}
+
+	public void setAddressDao(AddressDAO addressDao) {
+		this.addressDao = addressDao;
 	}	
 }

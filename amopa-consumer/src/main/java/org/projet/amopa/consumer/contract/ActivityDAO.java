@@ -24,7 +24,11 @@ public interface ActivityDAO {
 	
 	List<Activity> getListActivityByAG(String genre);
 	
+	List<Activity> getListActivityByTheatre(String genre);
+	
 	List<Activity> getActivity();
 	
 	void updateActivity(Activity activity);
+	
+	void deleteActivity(Activity activity);
 }

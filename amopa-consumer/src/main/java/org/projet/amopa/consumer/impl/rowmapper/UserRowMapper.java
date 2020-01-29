@@ -18,7 +18,6 @@ public class UserRowMapper implements RowMapper<User> {
 		vUser.setMail(pRS.getString("mail"));
 		vUser.setPhone(pRS.getInt("phone"));
 		vUser.setCellphone(pRS.getInt("cellphone"));
-		vUser.setId_address(pRS.getInt("id_address"));
 		return vUser;
 	}
 }

@@ -1,0 +1,13 @@
+org/projet/amopa/consumer/impl/ReservationDAOImpl.class
+org/projet/amopa/consumer/contract/ReservationDAO.class
+org/projet/amopa/consumer/App.class
+org/projet/amopa/consumer/impl/AbstractDaoImpl.class
+org/projet/amopa/consumer/impl/UserDAOImpl.class
+org/projet/amopa/consumer/impl/DaoFactoryImpl.class
+org/projet/amopa/consumer/contract/UserDAO.class
+org/projet/amopa/consumer/impl/rowmapper/UserRowMapper.class
+org/projet/amopa/consumer/impl/ActivityDAOImpl.class
+org/projet/amopa/consumer/contract/DaoFactory.class
+org/projet/amopa/consumer/impl/rowmapper/ActivityRowMapper.class
+org/projet/amopa/consumer/contract/ActivityDAO.class
+org/projet/amopa/consumer/impl/rowmapper/ReservationRowMapper.class

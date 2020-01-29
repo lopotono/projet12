@@ -24,12 +24,12 @@ public class ActivityDAOImpl extends AbstractDaoImpl implements ActivityDAO {
 		vParams.addValue("station", activity.getStation(), Types.VARCHAR);
 		vParams.addValue("places_disponibles", activity.getPlacesdisponibles(), Types.INTEGER);
 		vParams.addValue("hour", activity.getHour(), Types.VARCHAR);
-		vParams.addValue("date", activity.getDate(), Types.VARCHAR);
+		vParams.addValue("date", activity.getDate(), Types.DATE);
 		vParams.addValue("lieu", activity.getLieu(), Types.VARCHAR);
 		vParams.addValue("price", activity.getPrice(), Types.INTEGER);
-		vParams.addValue("pricesesame", activity.getPricesesame(), Types.INTEGER);
+		vParams.addValue("pricesesame", activity.getPricesesame(), Types.VARCHAR);
 		vParams.addValue("conferenciere", activity.getConferenciere(), Types.VARCHAR);
-		vParams.addValue("datelimite", activity.getDatelimite(), Types.VARCHAR);
+		vParams.addValue("datelimite", activity.getDatelimite(), Types.DATE);
 
 		NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 
@@ -133,10 +133,21 @@ public class ActivityDAOImpl extends AbstractDaoImpl implements ActivityDAO {
 
 		return vListActivity;
 	}
+	
+	public List<Activity> getListActivityByTheatre(String genre) {
+		
+		String vSQL = "SELECT * FROM activity WHERE genre='theatre'";
+		
+		ActivityRowMapper vRowMapper = new ActivityRowMapper();
+		
+		List<Activity> vListActivity = getJdbcTemplate().query(vSQL, vRowMapper);
+		
+		return vListActivity;
+	}
 
 	public List<Activity> getActivity() {
 
-		String vSQL = "SELECT * FROM activity ORDER BY title";
+		String vSQL = "SELECT * FROM activity ORDER BY date";
 
 		ActivityRowMapper vRowMapper = new ActivityRowMapper();
 
@@ -158,12 +169,12 @@ public class ActivityDAOImpl extends AbstractDaoImpl implements ActivityDAO {
 		vParams.addValue("station", activity.getStation(), Types.VARCHAR);
 		vParams.addValue("places_disponibles", activity.getPlacesdisponibles(), Types.INTEGER);
 		vParams.addValue("hour", activity.getHour(), Types.VARCHAR);
-		vParams.addValue("date", activity.getDate(), Types.VARCHAR);
+		vParams.addValue("date", activity.getDate(), Types.DATE);
 		vParams.addValue("lieu", activity.getLieu(), Types.VARCHAR);
 		vParams.addValue("price", activity.getPrice(), Types.INTEGER);
-		vParams.addValue("pricesesame", activity.getPricesesame(), Types.INTEGER);
+		vParams.addValue("pricesesame", activity.getPricesesame(), Types.VARCHAR);
 		vParams.addValue("conferenciere", activity.getConferenciere(), Types.VARCHAR);
-		vParams.addValue("datelimite", activity.getDatelimite(), Types.VARCHAR);
+		vParams.addValue("datelimite", activity.getDatelimite(), Types.DATE);
 
 		NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 
@@ -174,4 +185,20 @@ public class ActivityDAOImpl extends AbstractDaoImpl implements ActivityDAO {
 		}
 
 	}
+
+	public void deleteActivity(Activity activity) {
+		
+		String vSQL = "DELETE FROM activity WHERE id_activity=:id_activity";
+		
+		MapSqlParameterSource vParams = new MapSqlParameterSource();
+		vParams.addValue("id_activity", activity.getIdactivity(), Types.INTEGER);
+		
+		NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+		
+		try {
+			vJdbcTemplate.update(vSQL, vParams);
+		} catch (DuplicateKeyException vEx) {
+
+		}		
+	}	
 }

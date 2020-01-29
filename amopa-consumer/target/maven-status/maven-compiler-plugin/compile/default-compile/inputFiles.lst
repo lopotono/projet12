@@ -1,0 +1,13 @@
+/home/fred/Bureau/amopa/amopa-consumer/src/main/java/org/projet/amopa/consumer/impl/UserDAOImpl.java
+/home/fred/Bureau/amopa/amopa-consumer/src/main/java/org/projet/amopa/consumer/impl/DaoFactoryImpl.java
+/home/fred/Bureau/amopa/amopa-consumer/src/main/java/org/projet/amopa/consumer/impl/rowmapper/ReservationRowMapper.java
+/home/fred/Bureau/amopa/amopa-consumer/src/main/java/org/projet/amopa/consumer/impl/rowmapper/ActivityRowMapper.java
+/home/fred/Bureau/amopa/amopa-consumer/src/main/java/org/projet/amopa/consumer/impl/rowmapper/UserRowMapper.java
+/home/fred/Bureau/amopa/amopa-consumer/src/main/java/org/projet/amopa/consumer/contract/DaoFactory.java
+/home/fred/Bureau/amopa/amopa-consumer/src/main/java/org/projet/amopa/consumer/contract/ReservationDAO.java
+/home/fred/Bureau/amopa/amopa-consumer/src/main/java/org/projet/amopa/consumer/impl/AbstractDaoImpl.java
+/home/fred/Bureau/amopa/amopa-consumer/src/main/java/org/projet/amopa/consumer/App.java
+/home/fred/Bureau/amopa/amopa-consumer/src/main/java/org/projet/amopa/consumer/contract/ActivityDAO.java
+/home/fred/Bureau/amopa/amopa-consumer/src/main/java/org/projet/amopa/consumer/impl/ReservationDAOImpl.java
+/home/fred/Bureau/amopa/amopa-consumer/src/main/java/org/projet/amopa/consumer/contract/UserDAO.java
+/home/fred/Bureau/amopa/amopa-consumer/src/main/java/org/projet/amopa/consumer/impl/ActivityDAOImpl.java
