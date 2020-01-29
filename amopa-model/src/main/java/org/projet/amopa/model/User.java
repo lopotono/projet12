@@ -2,13 +2,22 @@ package org.projet.amopa.model;
 
 public class User {
 	
-	private int id;
+	private int iduser;
 	private String member;
 	private String surname;
 	private String firstname;
+	private String password;
 	private String mail;
 	private int phone;
 	private int cellphone;
+
+	public int getIduser() {
+		return iduser;
+	}
+
+	public void setIduser(int iduser) {
+		this.iduser = iduser;
+	}
 
 	public String getMember() {
 		return member;
@@ -16,14 +25,6 @@ public class User {
 
 	public void setMember(String member) {
 		this.member = member;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getSurname() {
@@ -40,6 +41,14 @@ public class User {
 
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getMail() {
@@ -65,5 +74,4 @@ public class User {
 	public void setCellphone(int cellphone) {
 		this.cellphone = cellphone;
 	}
-
 }

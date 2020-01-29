@@ -1,7 +1,6 @@
 package org.projet.amopa.model;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class Reservation {
 	
