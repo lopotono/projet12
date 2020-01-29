@@ -1,0 +1,12 @@
+org/projet/amopa/business/contract/ActivityManager.class
+org/projet/amopa/business/impl/ActivityManagerImpl.class
+org/projet/amopa/business/contract/ManagerFactory.class
+org/projet/amopa/business/contract/ReservationManager.class
+org/projet/amopa/business/App.class
+org/projet/amopa/business/contract/UserManager.class
+org/projet/amopa/business/impl/ActivityManagerImpl$1.class
+org/projet/amopa/business/impl/ReservationManagerImpl.class
+org/projet/amopa/business/impl/AbstractManager.class
+org/projet/amopa/business/impl/ManagerFactoryImpl.class
+org/projet/amopa/business/mail/MailSender.class
+org/projet/amopa/business/impl/UserManagerImpl.class

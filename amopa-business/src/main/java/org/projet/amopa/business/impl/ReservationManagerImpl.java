@@ -14,8 +14,8 @@ public class ReservationManagerImpl extends AbstractManager implements Reservati
 	}
 
 	public void insertReservation(Reservation reservation) {
-		String body = "Ce courriel vous informe que vous avez bien réservé " + reservation.getNbreparticipants()
-				+ " place(s) pour l'activité " + reservation.getActivity().getTitle() + ".";
+		String body = "Ce courriel vous informe que vous avez bien reserve " + reservation.getNbreparticipants()
+				+ " place(s) pour l'activite " + reservation.getActivity().getTitle() + ".";
 		getMs().sendMail("terragef@gmail.com", reservation.getvUser().getMail(), "Réservation d'une activité", body);
 		getDaoFactory().getReservationDao().insertReservation(reservation);
 	}
@@ -69,8 +69,8 @@ public class ReservationManagerImpl extends AbstractManager implements Reservati
 
 	public void confirmerReservation(Reservation reservation) {
 		String subject = "Confirmation de votre réservation.";
-		String body = "Votre réservation pour l'activité " + reservation.getActivity().getTitle()
-				+ " est confirmée. Vous recevrez par la suite un courriel de rappel.";		
+		String body = "Votre réservation pour l'activite " + reservation.getActivity().getTitle()
+				+ " est confirmee. Vous recevrez par la suite un courriel de rappel. M TERRAGE christian trésorier.";		
 		getMs().sendMail("terragef@gmail.com", reservation.getvUser().getMail(), subject, body);
 		getDaoFactory().getReservationDao().confirmerReservation(reservation);
 	}

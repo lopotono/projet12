@@ -1,0 +1,11 @@
+/home/fred/Bureau/amopa/amopa-business/src/main/java/org/projet/amopa/business/impl/ManagerFactoryImpl.java
+/home/fred/Bureau/amopa/amopa-business/src/main/java/org/projet/amopa/business/impl/ActivityManagerImpl.java
+/home/fred/Bureau/amopa/amopa-business/src/main/java/org/projet/amopa/business/contract/UserManager.java
+/home/fred/Bureau/amopa/amopa-business/src/main/java/org/projet/amopa/business/contract/ReservationManager.java
+/home/fred/Bureau/amopa/amopa-business/src/main/java/org/projet/amopa/business/contract/ManagerFactory.java
+/home/fred/Bureau/amopa/amopa-business/src/main/java/org/projet/amopa/business/mail/MailSender.java
+/home/fred/Bureau/amopa/amopa-business/src/main/java/org/projet/amopa/business/impl/ReservationManagerImpl.java
+/home/fred/Bureau/amopa/amopa-business/src/main/java/org/projet/amopa/business/impl/AbstractManager.java
+/home/fred/Bureau/amopa/amopa-business/src/main/java/org/projet/amopa/business/App.java
+/home/fred/Bureau/amopa/amopa-business/src/main/java/org/projet/amopa/business/impl/UserManagerImpl.java
+/home/fred/Bureau/amopa/amopa-business/src/main/java/org/projet/amopa/business/contract/ActivityManager.java

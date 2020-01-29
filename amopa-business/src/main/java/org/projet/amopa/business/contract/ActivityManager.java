@@ -22,9 +22,13 @@ public interface ActivityManager {
 	
 	List<Activity> getListActivityByAG(String genre);
 	
+	List<Activity> getListActivityByTheatre(String genre);
+	
 	List<Activity> getActivity();
 	
 	void updateActivity(Activity activity);
 	
 	int getActivityByPlacesId(int idactivity);
+	
+	void deleteActivity(Activity activity);
 }

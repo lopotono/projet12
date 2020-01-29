@@ -5,4 +5,5 @@ public interface ManagerFactory {
 	UserManager getUserManager();
 	ActivityManager getActivityManager();
 	ReservationManager getReservationManager();
+	AddressManager getAddressManager();
 }
