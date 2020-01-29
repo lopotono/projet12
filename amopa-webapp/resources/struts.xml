@@ -28,6 +28,39 @@
 			<result name="error">secretaire/description.jsp</result>
 		</action>
 
+		<!-- Action page ajout utilisateur -->
+		<action name="ajout">
+			<result>admin/userform.jsp</result>
+		</action>
+
+		<!-- Action page du trésorier pour ajout utilisateur -->
+		<action name="tresorierajout">
+			<result>tresorier/adduser.jsp</result>
+		</action>
+
+		<!-- Action ajouter un utilisateur -->
+		<action name="addUser"
+			class="org.projet.amopa.webapp.action.AddUserAction" method="execute">
+			<result name="success">admin/userform.jsp</result>
+			<result name="error">admin/userform.jsp</result>
+		</action>
+
+		<!-- Action ajouter un utilisateur pour le trésorier -->
+		<action name="addUserTre"
+			class="org.projet.amopa.webapp.action.AddUserForTresorierAction"
+			method="execute">
+			<result name="success">tresorier/adduser.jsp</result>
+			<result name="error">tresorier/adduser.jsp</result>
+		</action>
+
+		<!-- Action ajouter une adresse -->
+		<action name="addAddress"
+			class="org.projet.amopa.webapp.action.AddAddressAction"
+			method="execute">
+			<result name="success">admin/userform.jsp</result>
+			<result name="error">admin/userform.jsp</result>
+		</action>
+
 		<!-- Action afficher formulaire activité -->
 		<action name="formulaireActivity">
 			<result>secretaire/description.jsp</result>
@@ -101,6 +134,16 @@
 			<result>contact/contact.jsp</result>
 		</action>
 
+		<!-- Action afficher informations autres sections -->
+		<action name="info">
+			<result>info/info.jsp</result>
+		</action>
+
+		<!-- Action afficher archives des activités 2019 -->
+		<action name="archive2019">
+			<result>activities/archive2019.jsp</result>
+		</action>
+
 		<!-- Action afficher l'historique des activités par utilisateur -->
 		<action name="historique"
 			class="org.projet.amopa.webapp.action.ListActivityByUserAction"
@@ -120,7 +163,12 @@
 		<action name="suivi">
 			<result>reservations/suivi.jsp</result>
 		</action>
-		
+
+		<!-- Action informations du voyage en corse -->
+		<action name="corse">
+			<result>activities/corse.jsp</result>
+		</action>
+
 		<!-- Action page modifier activité fonctionnalité de la secrétaire -->
 		<action name="modifier"
 			class="org.projet.amopa.webapp.action.ModifierAction"
@@ -134,80 +182,99 @@
 			<result name="input">secretaire/modifier.jsp</result>
 			<result name="success">secretaire/modifier.jsp</result>
 		</action>
-		
+
+		<!-- Action modifier titre de l'activité par la secrétaire -->
+		<action name="changeTitre"
+			class="org.projet.amopa.webapp.action.ChangeTitreAction"
+			method="execute">
+			<result name="input">secretaire/modifier.jsp</result>
+			<result name="success">secretaire/modifier.jsp</result>
+		</action>
+
 		<!-- Action modifier genre de l'activité par la secrétaire -->
 		<action name="changeGenre"
-			class="org.projet.amopa.webapp.action.ChangeGenreAction" method="execute">
+			class="org.projet.amopa.webapp.action.ChangeGenreAction"
+			method="execute">
 			<result name="input">secretaire/modifier.jsp</result>
 			<result name="success">secretaire/modifier.jsp</result>
 		</action>
-		
+
 		<!-- Action modifier description de l'activité par la secrétaire -->
 		<action name="changeDescription"
-			class="org.projet.amopa.webapp.action.ChangeDescriptionAction" method="execute">
+			class="org.projet.amopa.webapp.action.ChangeDescriptionAction"
+			method="execute">
 			<result name="input">secretaire/modifier.jsp</result>
 			<result name="success">secretaire/modifier.jsp</result>
 		</action>
-		
+
 		<!-- Action modifier lieu de l'activité par la secrétaire -->
 		<action name="changeLieu"
-			class="org.projet.amopa.webapp.action.ChangeLieuAction" method="execute">
+			class="org.projet.amopa.webapp.action.ChangeLieuAction"
+			method="execute">
 			<result name="input">secretaire/modifier.jsp</result>
 			<result name="success">secretaire/modifier.jsp</result>
 		</action>
-		
+
 		<!-- Action modifier station de l'activité par la secrétaire -->
 		<action name="changeStation"
-			class="org.projet.amopa.webapp.action.ChangeStationAction" method="execute">
+			class="org.projet.amopa.webapp.action.ChangeStationAction"
+			method="execute">
 			<result name="input">secretaire/modifier.jsp</result>
 			<result name="success">secretaire/modifier.jsp</result>
 		</action>
-		
+
 		<!-- Action modifier places disponibles de l'activité par la secrétaire -->
 		<action name="changePlaces"
-			class="org.projet.amopa.webapp.action.ChangePlacesAction" method="execute">
+			class="org.projet.amopa.webapp.action.ChangePlacesAction"
+			method="execute">
 			<result name="input">secretaire/modifier.jsp</result>
 			<result name="success">secretaire/modifier.jsp</result>
 		</action>
-		
+
 		<!-- Action modifier date limite de l'activité par la secrétaire -->
 		<action name="changeDatelimite"
-			class="org.projet.amopa.webapp.action.ChangeDateLimiteAction" method="execute">
+			class="org.projet.amopa.webapp.action.ChangeDateLimiteAction"
+			method="execute">
 			<result name="input">secretaire/modifier.jsp</result>
 			<result name="success">secretaire/modifier.jsp</result>
 		</action>
-		
+
 		<!-- Action modifier l'heure de l'activité par la secrétaire -->
 		<action name="changeHeure"
-			class="org.projet.amopa.webapp.action.ChangeHeureAction" method="execute">
+			class="org.projet.amopa.webapp.action.ChangeHeureAction"
+			method="execute">
 			<result name="input">secretaire/modifier.jsp</result>
 			<result name="success">secretaire/modifier.jsp</result>
 		</action>
-		
+
 		<!-- Action modifier l'adresse de l'activité par la secrétaire -->
 		<action name="changeAdresse"
-			class="org.projet.amopa.webapp.action.ChangeAdresseAction" method="execute">
+			class="org.projet.amopa.webapp.action.ChangeAdresseAction"
+			method="execute">
 			<result name="input">secretaire/modifier.jsp</result>
 			<result name="success">secretaire/modifier.jsp</result>
 		</action>
-		
+
 		<!-- Action modifier le prix de l'activité par la secrétaire -->
 		<action name="changePrice"
-			class="org.projet.amopa.webapp.action.ChangePriceAction" method="execute">
+			class="org.projet.amopa.webapp.action.ChangePriceAction"
+			method="execute">
 			<result name="input">secretaire/modifier.jsp</result>
 			<result name="success">secretaire/modifier.jsp</result>
 		</action>
-		
+
 		<!-- Action modifier le prix sesame de l'activité par la secrétaire -->
 		<action name="changePricesesame"
-			class="org.projet.amopa.webapp.action.ChangePriceSesameAction" method="execute">
+			class="org.projet.amopa.webapp.action.ChangePriceSesameAction"
+			method="execute">
 			<result name="input">secretaire/modifier.jsp</result>
 			<result name="success">secretaire/modifier.jsp</result>
 		</action>
-		
+
 		<!-- Action modifier la conférencière de l'activité par la secrétaire -->
 		<action name="changeConferenciere"
-			class="org.projet.amopa.webapp.action.ChangeConferenciereAction" method="execute">
+			class="org.projet.amopa.webapp.action.ChangeConferenciereAction"
+			method="execute">
 			<result name="input">secretaire/modifier.jsp</result>
 			<result name="success">secretaire/modifier.jsp</result>
 		</action>
@@ -223,6 +290,14 @@
 		<action name="listUser"
 			class="org.projet.amopa.webapp.action.ListUserAction"
 			method="execute">
+			<result name="success">admin/userform.jsp</result>
+		</action>
+
+		<!-- Action lister les utilisateurs pour le trésorier -->
+		<action name="listUserTresorier"
+			class="org.projet.amopa.webapp.action.ListUserTreAction"
+			method="execute">
+			<result name="success">tresorier/adduser.jsp</result>
 		</action>
 
 		<!-- Action supprimer une réservation par le trésorier -->
@@ -230,6 +305,27 @@
 			class="org.projet.amopa.webapp.action.RemoveReservationAction"
 			method="execute">
 			<result name="success">reservations/suivi.jsp</result>
+		</action>
+
+		<!-- Action supprimer une activité -->
+		<action name="delete"
+			class="org.projet.amopa.webapp.action.DeleteActivityAction"
+			method="execute">
+			<result name="success">activities/deleteactivity.jsp</result>
+		</action>
+
+		<!-- Action supprimer un utilisateur -->
+		<action name="deleteuser"
+			class="org.projet.amopa.webapp.action.DeleteUserAction"
+			method="execute">
+			<result name="success">admin/userform.jsp</result>
+		</action>
+
+		<!-- Action supprimer un utilisateur par le trésorier -->
+		<action name="deleteusertre"
+			class="org.projet.amopa.webapp.action.DeleteUserTreAction"
+			method="execute">
+			<result name="success">tresorier/adduser.jsp</result>
 		</action>
 
 		<!-- Action annuler une réservation par l'utilisateur -->
@@ -244,6 +340,13 @@
 			class="org.projet.amopa.webapp.action.ListActivityAction"
 			method="execute">
 			<result name="success">activities/listeactivity.jsp</result>
+		</action>
+
+		<!-- Action afficher page delete activités -->
+		<action name="listActivityDelete"
+			class="org.projet.amopa.webapp.action.ListActivityDeleteAction"
+			method="execute">
+			<result name="success">activities/deleteactivity.jsp</result>
 		</action>
 
 		<!-- Action formulaire places disponibles pour le trésorier -->
